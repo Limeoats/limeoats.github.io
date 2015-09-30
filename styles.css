@@ -21,6 +21,10 @@ h3 {
   margin-bottom: 8px;
 }
 
+li {
+  margin-bottom: 6px;
+}
+
 p {
   margin: 0; padding: 0; border: 0;
   font-size: 11pt;
