@@ -243,3 +243,15 @@ a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+.subsection {
+  margin-left: 2em;
+}
+
+.subsection p {
+  font-size: 12pt;
+}
+
+ul {
+  list-style-type: square;
+}
