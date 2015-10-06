@@ -1,1 +1,4 @@
-console.log('This would be the main JS file.');
+window.onload = function() {
+  document.getElementById("currentYear").innerHTML = "-" +
+    new Date().getFullYear();
+}
