@@ -75,6 +75,11 @@ a {
   margin-top: 0;
   margin-bottom: 0.1rem; }
 
+.project-name a, .project-name a:link, .project-name a:visited, .project-name a:hover, .project-name a:active {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 @media screen and (min-width: 64em) {
   .project-name {
     font-size: 3.25rem; } }
@@ -254,4 +259,11 @@ a {
 
 ul {
   list-style-type: square;
+}
+
+.project-icons img {
+  width: 32px;
+  height: auto;
+  padding-left: 2px;
+  padding-right: 2px;
 }
