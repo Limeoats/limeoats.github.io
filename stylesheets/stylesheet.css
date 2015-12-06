@@ -297,7 +297,7 @@ ul {
     text-decoration: none;
     cursor: pointer;
     cursor: hand;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 .limeButton:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #56b324), color-stop(1, #44c767));
