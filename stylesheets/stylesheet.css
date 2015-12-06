@@ -321,3 +321,9 @@ ul {
     cursor: pointer;
     cursor: hand;
 }
+
+@media handheld {
+    .limeButton {
+        padding: 6px 10px 6px 10px;
+    }
+}
