@@ -297,6 +297,7 @@ ul {
     text-decoration: none;
     cursor: pointer;
     cursor: hand;
+    margin-bottom: 8px;
 }
 .limeButton:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #56b324), color-stop(1, #44c767));
@@ -320,10 +321,4 @@ ul {
     text-decoration: none;
     cursor: pointer;
     cursor: hand;
-}
-
-@media handheld {
-    .limeButton {
-        padding: 6px 10px 6px 10px;
-    }
 }
