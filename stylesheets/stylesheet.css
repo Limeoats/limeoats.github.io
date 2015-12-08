@@ -322,3 +322,17 @@ ul {
     cursor: pointer;
     cursor: hand;
 }
+
+.subsection h4 {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.subsection h4:active {
+    position:relative;
+    top:1px;
+}
+
+.subsection > a:link {
+    text-decoration: none;
+}
