@@ -278,6 +278,22 @@ ul {
   padding-right: 2px;
 }
 
+.project-icons img:active {
+    position:relative;
+    top:1px;   
+}
+
+#discordButton {
+    position: relative; 
+    width: 36px; 
+    top: 2px;   
+}
+
+#discordButton:active {
+    position:relative;
+    top: 3px;  
+}
+
 /* Button classes */
 .limeButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #3dc21b;
