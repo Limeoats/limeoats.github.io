@@ -283,6 +283,11 @@ ul {
     top:1px;   
 }
 
+#patreonButton {
+    border-radius: 5px;
+    width: 30px;
+}
+
 #discordButton {
     position: relative; 
     width: 36px; 
