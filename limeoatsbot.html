@@ -50,11 +50,8 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $.getJSON("http://anyorigin.com/get?url=http://www.limeoats.com/includes/botcommands.js&callback=?", {
-          format: "json"
-        }).done(function(data) {
-          alert("hi");
-          $("#divBotCommands").html(data);
+        loadJSON("includes/botcommands.js", function(response) {
+          $("#divBotCommands").html(response);
         });
       });
     </script>
