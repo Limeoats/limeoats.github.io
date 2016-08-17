@@ -50,7 +50,9 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $("#divBotCommands").html("jquery test");
+        $.getJSON("http://anyorigin.com/get?url=http://www.limeoats.com/includes/botcommands.js&callback=?", function(data) {
+          $("#divBotCommands").html(data);
+        });
       });
     </script>
 
