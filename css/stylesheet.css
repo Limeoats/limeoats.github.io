@@ -373,3 +373,8 @@ ul {
     position: relative;
     left: 4px;
 }
+
+#tblBotCommands {
+  width: 100%;
+  font-size: 11pt;
+}

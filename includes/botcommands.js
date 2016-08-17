@@ -12,5 +12,12 @@
 		'Response' : 'Please give Limeoats a follow at twitter.com/limeoats! All follows are greatly appreciated!!~Go to patreon.com/limeoats to support me! :)',
 		'Description' : 'Important stream messages',
 		'Op' : '1'
+	},
+	{
+		'Id' : 3,
+		'Command' : '!commands',
+		'Response' : 'Go to http://www.limeoats.com/limeoatsbot.html to view a list of commands that I will respond to!',
+		'Description' : 'Displays the link to the commands page',
+		'Op' : '0'
 	}
 ]
