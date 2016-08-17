@@ -51,7 +51,7 @@
     <script type="text/javascript">
       $(document).ready(function() {
         loadJSON("includes/botcommands.js", function(response) {
-          var str = response.replace(/'/g, '"');
+          var str = response.replace(/(\')/g, '"');
           str = str.replace(/(\")/g, "\\\\\"");
           var items = $.parseJSON(response);
           for (i = 0; i < items.length; ++i) {
