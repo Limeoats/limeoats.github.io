@@ -51,8 +51,13 @@
     <script type="text/javascript">
       $(document).ready(function() {
         loadJSON("includes/botcommands.js", function(response) {
-          $("#divBotCommands").html(response);
-        });
+          var items = $.parseJSON(response);
+          for (i = 0; i < items.length; ++i) {
+            $("#tblBotCommands").append("<tr><td>" + items[i].Id + "</td><td>" + 
+              items[i].Command + "</td><td>" + items[i].Response + "</td><td>" + items[i].Description + "</td></tr>");
+          }
+        }
+
       });
     </script>
 
