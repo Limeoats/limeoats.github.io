@@ -52,7 +52,7 @@
       $(document).ready(function() {
         loadJSON("includes/botcommands.js", function(response) {
           var str = response.replace(/(\')/g, '"');
-          str = str.replace(/(\\")/g, "\\\\\"");
+          
           var items = $.parseJSON(str);
           for (i = 0; i < items.length; ++i) {
             $("#tblBotCommands").append("<tr><td>" + items[i].Id + "</td><td>" + 
