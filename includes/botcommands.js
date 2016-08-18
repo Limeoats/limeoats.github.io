@@ -30,7 +30,7 @@
 	{
 		'Id' : 1,
 		'Command' : '!time',
-		'Response' : 'It is currently {time.strftime(\"%I:%M %p %Z on %A, %B %d, %Y.\")})',
+		'Response' : 'It is currently {current time}.',
 		'Description' : 'Gets the current time',
 		'Op' : '0'
 	}
