@@ -54,7 +54,7 @@
           var str = response.replace(/(\')/g, '"');
           var items = $.parseJSON(str);
           for (i = 0; i < items.length; ++i) {
-            $("#tblBotCommands").append("<tr><td>" + items[i].Id + "</td><td>" + 
+            $("#tblBotCommands").append("<tr><td>" + 
               items[i].Command + "</td><td>" + items[i].Response + "</td><td>" + items[i].Description + "</td></tr>");
           }
         });
@@ -75,7 +75,6 @@
         <h2>Limeoats Bot</h2>
         <div id="divBotCommands">
           <table id="tblBotCommands">
-            <th>Id</th>
             <th>Command</th>
             <th>Response</th>
             <th style="width: 200px;">Description</th>
