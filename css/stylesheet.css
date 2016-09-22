@@ -1,9 +1,9 @@
 * {
   box-sizing: border-box; }
-  
+
 h4 {
     margin: 0;
-    padding: 0;   
+    padding: 0;
 }
 
 body {
@@ -66,11 +66,11 @@ a {
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 5rem 6rem; } }
+    padding: 3rem 4rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
-    padding: 3rem 4rem; } }
+    padding: 2rem 3rem; } }
 
 @media screen and (max-width: 42em) {
   .page-header {
@@ -259,7 +259,7 @@ a {
 }
 
 .main-content p {
-    margin-top: 0;   
+    margin-top: 0;
 }
 
 .subsection p {
@@ -280,7 +280,7 @@ ul {
 
 .project-icons img:active {
     position:relative;
-    top:1px;   
+    top:1px;
 }
 
 #patreonButton {
@@ -289,14 +289,14 @@ ul {
 }
 
 #discordButton {
-    position: relative; 
-    width: 36px; 
-    top: 2px;   
+    position: relative;
+    width: 36px;
+    top: 2px;
 }
 
 #discordButton:active {
     position:relative;
-    top: 3px;  
+    top: 3px;
 }
 
 /* Button classes */
@@ -377,4 +377,8 @@ ul {
 #tblBotCommands {
   width: 100%;
   font-size: 11pt;
+}
+
+.roundImage {
+  border-radius: 3px;
 }
