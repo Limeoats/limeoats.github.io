@@ -54,20 +54,6 @@
         ga('create', 'UA-78321209-1', 'auto');
         ga('send', 'pageview');
     </script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            loadJSON("includes/botcommands.js", function (response) {
-                var str = response.replace(/(\')/g, '"');
-                var items = $.parseJSON(str);
-                for (i = 0; i < items.length; ++i) {
-                    $("#tblBotCommands").append("<tr><td>" +
-                        items[i].Command + "</td><td>" + items[i].Response + "</td><td>" + items[i].Description + "</td></tr>");
-                }
-            });
-        });
-    </script>
-
 </head>
 <body>
 <meta itemprop="name" content="Limeoats | Limeoats Bot">
@@ -82,8 +68,19 @@
         <div id="divBotCommands">
             <table id="tblBotCommands">
                 <th>Command</th>
-                <th>Response</th>
-                <th style="width: 200px;">Description</th>
+                <th>Description</th>
+                <tr>
+                    <td>!time</td>
+                    <td>Show the local time where Limeoats is</td>
+                </tr>
+                <tr>
+                    <td>!messages</td>
+                    <td>Show a bunch of important stream-related messages</td>
+                </tr>
+                <tr>
+                    <td>!commands</td>
+                    <td>Show a list of commands that I respond to</td>
+                </tr>
             </table>
         </div>
     </div>
