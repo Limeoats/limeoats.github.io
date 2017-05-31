@@ -125,18 +125,18 @@ public class CameraFollow : MonoBehaviour {
 
 	private Vector3 _cameraMovementVector;  //The camera input from the controller
 
-	private Vector3 _offset; 	//The difference between the camera's 
+	private Vector3 _offset; 	//The difference between the camera's
                                         //position and its "target"
 
 	void Start() {
 		//Initialize our offset to put the camera at the position we want.
-		//Through trial and error, I found that these values worked nicely 
+		//Through trial and error, I found that these values worked nicely
                 //and put the camera in a good spot
-		this._offset = new Vector3(this.Target.position.x - 130.0f, 
+		this._offset = new Vector3(this.Target.position.x - 130.0f,
                     this.Target.position.y + 15.0f, this.Target.position.z - 105.0f);
 	}
 
-	//Use LateUpdate to ensure that the player's position actually changed (in update) 
+	//Use LateUpdate to ensure that the player's position actually changed (in update)
 	//before moving the camera to follow it
 	void LateUpdate () {
 		//Check for camera movement input
@@ -151,7 +151,7 @@ public class CameraFollow : MonoBehaviour {
 		this.transform.position = this.Target.position + _offset;
 
 		//Adjust the camera's rotation to "look at" its target
-		this.transform.LookAt(new Vector3(this.Target.position.x, 
+		this.transform.LookAt(new Vector3(this.Target.position.x,
                     this.transform.position.y, this.Target.position.z));
 	}
 }
@@ -215,12 +215,12 @@ public class CameraTracker : MonoBehaviour {
 			this._endPoint = this.Player.transform.position;
 		}
 	}
-	
+
 	void Update () {
 		if (this.Player != null) {
 			//Check if the distance between the player and the ball is big enough
                         //to start moving
-			if (Vector3.Distance(this.Player.transform.position, 
+			if (Vector3.Distance(this.Player.transform.position,
                             this.transform.position) > DISTANCE_THRESHOLD) {
 				//Start moving towards the player
 				this.transform.position = Vector3.Slerp(
@@ -319,7 +319,10 @@ public class CameraTracker : MonoBehaviour {
         })();
     </script>
     <div>
-        </p>
+        <footer class="site-footer">
+            <span class="site-footer-credits">&copy; 2012<span id="currentYear"></span> Limeoats</span>
+        </footer>
+    </div>
 </section>
 </body>
 </html>
