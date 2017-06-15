@@ -157,7 +157,7 @@ a:hover {
 }
 
 .main-content :first-child {
-    margin-top: 16px;
+    margin-top: 0px;
 }
 
 .main-content img {
@@ -305,7 +305,7 @@ a:hover {
         max-width: 64rem;
         padding: 2rem 6rem;
         margin: 0 auto;
-        font-size: 1.1rem;
+        font-size: 1.0rem;
     }
 }
 
@@ -365,7 +365,7 @@ a:hover {
 }
 
 .subsection p {
-    font-size: 12pt;
+    font-size: 0.95rem;
     margin-top: 0;
 }
 
