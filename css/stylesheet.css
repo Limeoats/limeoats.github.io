@@ -513,8 +513,167 @@ ul {
     color: #666666;
 }
 
-.pbs {
-    display: block;
-    margin-top: 8px;
-    margin-bottom: 8px;
+
+#homepageSelector {
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+    height: 34px;
+    cursor: pointer;
+    margin: 0 auto;
+    width: 60%;
+    position: relative;
+}
+
+#homepageSelector div {
+    float: left;
+    width: 25%;
+    text-align: center;
+    font-size: 16px;
+    padding-top: 5px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+#homepageSelector div:not(:last-child) {
+    border-right: 1px solid #BBBBBB;
+}
+
+#homepageSelector div:hover:not(.selected) {
+    color: #BBBBBB;
+}
+
+#homepageSelector .selected {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: #BBBBBB;
+    color: white;
+}
+
+
+/*
+ *  Projects section on homepage
+ */
+
+#mainProjects .project {
+    margin-top: 40px;
+}
+
+#mainProjects {
+    position: relative;
+}
+
+#mainProjects .title {
+    width: 24%;
+    font-size: 20px;
+    float: left;
+    text-align: right;
+    padding-right: 30px;
+    color: #159957;
+    height: 100%;
+}
+
+#mainProjects .description {
+    position: relative;
+    top: 4px;
+    width: auto;
+    display: table;
+}
+
+#mainProjects .description .pbs {
+    margin-top: 20px;
+}
+
+/*
+ *  Blog section on homepage
+ */
+
+#mainBlog {
+    margin-top: 40px;
+    position: relative;
+}
+
+#mainBlog .post {
+    margin-top: 40px;
+}
+
+#mainBlog .title {
+    color: #159957;
+    width: 24%;
+    font-size: 20px;
+    float: left;
+    text-align: right;
+    padding-right: 30px;
+    height: 100%;
+}
+
+#mainBlog .date {
+    font-size: 15px;
+}
+
+#mainBlog .description {
+    display: table;
+}
+
+#mainBlog .description .pbs {
+    margin-top: 20px;
+}
+
+/*
+ *  Publications section on homepage
+ */
+
+#mainPublications {
+    margin-top: 40px;
+    position: relative;
+}
+
+#mainPublications .publication {
+    margin-top: 40px;
+}
+
+#mainPublications .title {
+    color: #159957;
+    width: 45%;
+    font-size: 20px;
+    float: left;
+    text-align: right;
+    padding-right: 30px;
+    height: 100%;
+}
+
+#mainPublications .description {
+    display: table;
+}
+
+#mainPublications .description .pbs {
+    margin-top: 20px;
+}
+
+/*
+ *  Videos section on homepage
+ */
+
+#mainVideos {
+    margin-top: 40px;
+    position: relative;
+}
+
+#mainVideos .video {
+    margin-top: 40px;
+}
+
+#mainVideos .title {
+    color: #159957;
+    width: 30%;
+    font-size: 20px;
+    float: left;
+    text-align: right;
+    padding-right: 30px;
+    height: 100%;
+}
+
+#mainVideos .box {
+    display: table;
 }
