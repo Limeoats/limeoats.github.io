@@ -54,6 +54,40 @@
         ga('create', 'UA-78321209-1', 'auto');
         ga('send', 'pageview');
     </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#homepageSelector").find("div").click(function() {
+                $(".selected").removeClass("selected");
+                $(this).addClass("selected");
+
+                if ($("#homepageSelector").find("#projects").hasClass("selected")) {
+                    $("#mainBlog").hide();
+                    $("#mainPublications").hide();
+                    $("#mainVideos").hide();
+                    $("#mainProjects").fadeIn(100);
+                }
+                else if ($("#homepageSelector").find("#blog").hasClass("selected")) {
+                    $("#mainProjects").hide();
+                    $("#mainPublications").hide();
+                    $("#mainVideos").hide();
+                    $("#mainBlog").fadeIn(100);
+                }
+                else if ($("#homepageSelector").find("#publications").hasClass("selected")) {
+                    $("#mainProjects").hide();
+                    $("#mainBlog").hide();
+                    $("#mainVideos").hide();
+                    $("#mainPublications").fadeIn(100);
+                }
+                else if ($("#homepageSelector").find("#videos").hasClass("selected")) {
+                    $("#mainProjects").hide();
+                    $("#mainBlog").hide();
+                    $("#mainPublications").hide();
+                    $("#mainVideos").fadeIn(100);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <meta itemprop="name" content="Limeoats | Home">
