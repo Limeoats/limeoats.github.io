@@ -558,6 +558,10 @@ ul {
 
 #mainProjects .project {
     margin-top: 40px;
+
+}
+#mainProjects .project:last-child {
+    margin-bottom: 40px;
 }
 
 #mainProjects {
@@ -592,6 +596,10 @@ ul {
 #mainBlog {
     margin-top: 40px;
     position: relative;
+}
+
+#mainBlog .post:last-child {
+    margin-bottom: 40px;
 }
 
 #mainBlog .post {
@@ -629,6 +637,10 @@ ul {
     position: relative;
 }
 
+#mainPublications .publication:last-child {
+    margin-bottom: 40px;
+}
+
 #mainPublications .publication {
     margin-top: 40px;
 }
@@ -658,6 +670,10 @@ ul {
 #mainVideos {
     margin-top: 40px;
     position: relative;
+}
+
+#mainVideos .video:last-child {
+    margin-bottom: 40px;
 }
 
 #mainVideos .video {
