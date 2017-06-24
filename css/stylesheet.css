@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+html {
+    -webkit-text-size-adjust: none
+}
+
+
 h4 {
     margin: 0;
     padding: 0;
@@ -17,7 +22,7 @@ body {
 }
 
 div {
-  text-align: justify;
+    text-align: justify;
 }
 
 a {
@@ -374,8 +379,8 @@ ul {
 }
 
 .project-icons {
-  position: relative;
-  text-align: center;
+    position: relative;
+    text-align: center;
 }
 
 .project-icons img {
@@ -502,8 +507,8 @@ ul {
     text-transform: uppercase;
     font-weight: bold;
     transition: all 0.1s linear;
-   -webkit-transition: all 0.1s linear;
-   -moz-transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
     font-size: 13px;
     margin-right: 10px;
 }
@@ -692,4 +697,86 @@ ul {
 
 #mainVideos .box {
     display: table;
+}
+
+
+@media screen and (max-width: 1020px) {
+    .main-content *:not(h3) {
+        font-size: 12px;
+    }
+    .page-header {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .project-name {
+        margin-bottom: 0.4rem;
+    }
+    .project-tagline {
+        margin-bottom: 1rem;
+    }
+    .project-icons img {
+        -webkit-transform: scale(0.8); /* Saf3.1+, Chrome */
+        -moz-transform: scale(0.8); /* FF3.5+ */
+        -ms-transform: scale(0.8); /* IE9 */
+        -o-transform: scale(0.8); /* Opera 10.5+ */
+        transform: scale(0.8);
+        padding: 0;
+        margin: 0;
+    }
+
+    .title {
+        font-size: 16px !important;
+        width: 40% !important;
+    }
+
+    .pbs {
+        position: relative;
+        margin-top: 10px !important;
+    }
+
+    .project {
+        margin-top: 20px !important;
+    }
+
+    .projectButton {
+        font-size: 8px !important;
+        padding: 3px 8px !important;
+        margin-bottom: 8px;
+        margin-top: 0;
+        display: inline-block;
+    }
+
+    #homepageSelector {
+        width: 100%;
+    }
+
+
+    #homepageSelector div {
+        font-size: 13px;
+    }
+
+    #mainVideos .title {
+        width: 100% !important;
+        text-align: left;
+    }
+
+    #mainVideos .video {
+        margin: 0;
+    }
+
+    #mainVideos .video .box {
+        -webkit-transform: scale(0.6); /* Saf3.1+, Chrome */
+        -moz-transform: scale(0.6); /* FF3.5+ */
+        -ms-transform: scale(0.6); /* IE9 */
+        -o-transform: scale(0.6); /* Opera 10.5+ */
+        transform: scale(0.6);
+        margin-left: -114px;
+        margin-top: -80px;
+    }
+
+    #mainVideos .video .box iframe {
+        display: block;
+
+    }
+
 }
