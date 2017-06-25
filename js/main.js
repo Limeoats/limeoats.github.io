@@ -14,15 +14,3 @@ var createLinks = function () {
         "<a href=\"https://www.linkedin.com/pub/mark-guerra/66/a6a/107\" target=\"_blank\"><img src=\"images/linkedin-icon.png\" title=\"LinkedIn\" /></a>" +
         "<a href=\"https://discord.gg/TwbAEb4\" target=\"_blank\"><img src=\"images/discord-icon.png\" title=\"Discord\" id=\"discordButton\" /></a>";
 }
-
-function loadJSON(file, callback) {
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open("GET", file, true);
-    xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-            callback(xobj.responseText);
-        }
-    };
-    xobj.send(null);
-}
