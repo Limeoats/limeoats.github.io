@@ -386,8 +386,6 @@ ul {
 .project-icons img {
     width: 32px;
     height: auto;
-    padding-left: 2px;
-    padding-right: 2px;
 }
 
 .project-icons img:active {
