@@ -679,22 +679,9 @@ ul {
     margin-bottom: 40px;
 }
 
-#mainVideos .video {
-    margin-top: 40px;
-}
-
-#mainVideos .title {
+#mainVideos .video .title {
     color: #159957;
-    width: 30%;
     font-size: 20px;
-    float: left;
-    text-align: right;
-    padding-right: 30px;
-    height: 100%;
-}
-
-#mainVideos .box {
-    display: table;
 }
 
 /*
@@ -713,7 +700,6 @@ ul {
     top: -16.84%;
     left: 0;
     opacity: 0.7;
-    margin-top: 80px;
 }
 .youtube .play-button {
     width: 90px;
@@ -724,6 +710,11 @@ ul {
     opacity: 0.8;
     border-radius: 6px;
 }
+
+.youtube .play-button:hover {
+    background-color: red;
+}
+
 .youtube .play-button:before {
     content: "";
     border-style: solid;
