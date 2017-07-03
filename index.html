@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/favicon/apple-touch-icon-60x60.png"/>
     <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png"/>
     <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/favicon/apple-touch-icon-76x76.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon/pple-touch-icon-152x152.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png"/>
     <link rel="icon" type="image/png" href="images/favicon/favicon-196x196.png" sizes="196x196"/>
     <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96"/>
     <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32"/>
@@ -86,6 +86,26 @@
                     $("#mainVideos").fadeIn(100);
                 }
             });
+
+            var youtube = document.querySelectorAll(".youtube");
+            for (var i = 0; i < youtube.length; ++i) {
+                var source = "https://img.youtube.com/vi/" + youtube[i].dataset.embed + "/sddefault.jpg";
+                var image = new Image();
+                image.src = source;
+                image.addEventListener("load", function() {
+                   youtube[i].appendChild(image);
+                }(i));
+
+                youtube[i].addEventListener("click", function() {
+                   var iframe = document.createElement("iframe");
+                   iframe.setAttribute("frameborder", "0");
+                   iframe.setAttribute("allowfullscreen", "");
+                   iframe.setAttribute("src", "https://www.youtube.com/embed/" + this.dataset.embed + "?rel=0&showinfo=0&autoplay=1");
+                   this.innerHTML = "";
+                   this.appendChild(iframe);
+                });
+            }
+
         });
     </script>
 </head>
@@ -225,20 +245,20 @@
     <div id="mainVideos" style="display: none;">
         <div class="video">
             <div class="title">Lime2D - Lua Console</div>
-            <div class="box">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/4A07eRQyJY4" frameborder="1" allowfullscreen></iframe>
+            <div class="youtube" data-embed="4A07eRQyJY4">
+                <div class="play-button"></div>
             </div>
         </div>
         <div class="video">
             <div class="title">Lime2D - Integrated with a real game</div>
-            <div class="box">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/pCf6hkEYwu4" frameborder="1" allowfullscreen></iframe>
+            <div class="youtube" data-embed="pCf6hkEYwu4">
+                <div class="play-button"></div>
             </div>
         </div>
         <div class="video">
             <div class="title">Lime2D - Getting started</div>
-            <div class="box">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/iHNyOIGB0PE" frameborder="1" allowfullscreen></iframe>
+            <div class="youtube" data-embed="iHNyOIGB0PE">
+                <div class="play-button"></div>
             </div>
         </div>
     </div>
