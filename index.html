@@ -1,45 +1,28 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Limeoats | Home</title>
+    <title>Home | Limeoats</title>
     <link rel="canonical" href="http://www.limeoats.com"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="css/github-light.css" media="screen">
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/favicon/apple-touch-icon-60x60.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/favicon/apple-touch-icon-76x76.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png"/>
-    <link rel="icon" type="image/png" href="images/favicon/favicon-196x196.png" sizes="196x196"/>
-    <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96"/>
-    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32"/>
-    <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16"/>
-    <link rel="icon" type="image/png" href="images/favicon/favicon-128.png" sizes="128x128"/>
-    <meta name="application-name" content="&nbsp;"/>
-    <meta name="msapplication-TileColor" content="#FFFFFF"/>
-    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png"/>
-    <meta name="msapplication-square70x70logo" content="images/favicon/mstile-70x70.png"/>
-    <meta name="msapplication-square150x150logo" content="images/favicon/mstile-150x150.png"/>
-    <meta name="msapplication-wide310x150logo" content="images/favicon/mstile-310x150.png"/>
-    <meta name="msapplication-square310x310logo" content="images/favicon/mstile-310x310.png"/>
-    <meta name="theme-color" content="#ffffff">
     <meta name="description" content="Hello! My name is Mark and I enjoy programming.">
     <meta name="author" content="Limeoats">
 
-    <script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+
+    <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
     <script src="js/main.js" type="text/javascript"></script>
 
     <script>
-        //Google analytics
-        (function (i, s, o, g, r, a, m) {
+      //Google analytics
+      (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
                     (i[r].q = i[r].q || []).push(arguments)
@@ -50,242 +33,342 @@
             a.src = g;
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
         ga('create', 'UA-78321209-1', 'auto');
         ga('send', 'pageview');
     </script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#homepageSelector").find("div").click(function() {
-                $(".selected").removeClass("selected");
-                $(this).addClass("selected");
+    <script>
+    !function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    }(document, 'script', 'twitter-wjs');</script>
 
-                if ($("#homepageSelector").find("#projects").hasClass("selected")) {
-                    $("#mainBlog").hide();
-                    $("#mainPublications").hide();
-                    $("#mainVideos").hide();
-                    $("#mainProjects").fadeIn(100);
-                }
-                else if ($("#homepageSelector").find("#blog").hasClass("selected")) {
-                    $("#mainProjects").hide();
-                    $("#mainPublications").hide();
-                    $("#mainVideos").hide();
-                    $("#mainBlog").fadeIn(100);
-                }
-                else if ($("#homepageSelector").find("#publications").hasClass("selected")) {
-                    $("#mainProjects").hide();
-                    $("#mainBlog").hide();
-                    $("#mainVideos").hide();
-                    $("#mainPublications").fadeIn(100);
-                }
-                else if ($("#homepageSelector").find("#videos").hasClass("selected")) {
-                    $("#mainProjects").hide();
-                    $("#mainBlog").hide();
-                    $("#mainPublications").hide();
-                    $("#mainVideos").fadeIn(100);
-                }
-            });
-
-            var youtube = document.querySelectorAll(".youtube");
-            for (var i = 0; i < youtube.length; ++i) {
-                var source = "https://img.youtube.com/vi/" + youtube[i].dataset.embed + "/sddefault.jpg";
-                var image = new Image();
-                image.src = source;
-                image.addEventListener("load", function() {
-                   youtube[i].appendChild(image);
-                }(i));
-
-                youtube[i].addEventListener("click", function() {
-                   var iframe = document.createElement("iframe");
-                   iframe.setAttribute("frameborder", "0");
-                   iframe.setAttribute("allowfullscreen", "");
-                   iframe.setAttribute("src", "https://www.youtube.com/embed/" + this.dataset.embed + "?rel=0&showinfo=0&autoplay=1");
-                   this.innerHTML = "";
-                   this.appendChild(iframe);
-                });
-            }
-
-        });
-    </script>
 </head>
+
 <body>
-<meta itemprop="name" content="Limeoats | Home">
-<meta itemprop="description" content="Hello! My name is Mark and I enjoy programming.">
-<section class="page-header">
-    <h1 class="project-name"><a href="index.html">Limeoats</a></h1>
-    
-    <div class="project-icons">
-        <a href="https://www.twitter.com/limeoats" target="_blank"><img src="images/twitter-icon.png" title="Twitter" /></a>
-        <a href="https://www.youtube.com/channel/UC1azHQrx_NgGnEv5KUZB2jA" target="_blank"><img src="images/youtube-icon.png" title="YouTube" /></a>
-        <a href="https://www.twitch.tv/limeoats" target="_blank"><img src="images/twitch-icon.png" title="Twitch" /></a>
-        <a href="https://www.github.com/limeoats" target="_blank"><img src="images/github-icon.png" title="Github" /></a>
-        <a href="https://www.linkedin.com/pub/mark-guerra/66/a6a/107" target="_blank"><img src="images/linkedin-icon.png" title="LinkedIn" /></a>
-        <a href="https://discord.gg/TwbAEb4" target="_blank"><img src="images/discord-icon.png" title="Discord" id="discordButton" /></a>
+  <meta itemprop="name" content="Home | Limeoats">
+  <meta itemprop="description" content="Hello! My name is Mark and I enjoy programming.">
+  <nav class="navbar navbar-expand-sm navbar-light bg-faded">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Brand -->
+    <a class="navbar-brand" href="http://www.limeoats.com">
+      <img src="http://www.limeoats.com/images/favicon/apple-touch-icon-72x72.png" />
+    </a>
+    <a class="header-name link-no-underline" href="http://www.limeoats.com">Limeoats</span>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="nav-content">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#writing">Writing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#publications">Publications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#contact">Contact</a>
+        </li>
+      </ul>
     </div>
-</section>
-<section class="main-content">
-    <div>
-        <h3>Welcome to Limeoats.com</h3>
-        <p>
-            Hello! My name is Mark and I enjoy programming. I spend a lot of my time
-            doing all sorts of programming, including game development, web development, virtual reality,
-            and much more.
+  </nav>
+
+  <div class="main-container">
+
+    <div class="section-container">
+      <div class="section-title">
+        Welcome to Limeoats.com
+      </div>
+      <div class="section-text">
+        <p>Hello! My name is Mark and I enjoy programming. I spend a lot of my time doing all sorts of programming, including
+          game development, web development, virtual reality, and much more.</p>
+        <p>Here you can find all of the projects I've worked on, information about what I'm currently working on, some programming-related
+          blog posts, and even some published work.</p>
+        <p>If you wish to donate for any reason, please
+          <a href="https://www.paypal.com/donate/?token=LW4PWlpRYV6owojIQjN5V_eLOR3qaJnoikIpaSOZPpxeJY-oJPKyUybkGT8yLhRsgktsF0&country.x=US&locale.x=US"
+            target="_blank">click here.</a>
         </p>
+        <p>Thanks for visiting and enjoy!</p>
+
+      </div>
     </div>
-    <hr/>
-    <div id="homepageSelector">
-        <div id="projects" class="selected">Projects</div>
-        <div id="blog">Blog</div>
-        <div id="publications">Publications</div>
-        <div id="videos">Videos</div>
+
+    <div class="category-title">
+      <a name="projects"></a>
+      { Projects }
     </div>
-    <div id="mainProjects">
-        <div class="project">
-            <div class="title">
-                A Note For Lime
-            </div>
-            <div class="description">
-                For our one year anniversary, I made my girlfriend a game. Oats needs to deliver a very important
-                message to Lime, but he can't do it without your help. Navigate through multiple levels of
-                tricky platforming to win!
-                <div class="pbs">
-                    <a href="a-note-for-lime.html" class="projectButton">Open</a>
-                </div>
-            </div>
+
+    <div class="section-container">
+      <div class="project-item">
+        <div class="project-image">
+          <img src="images/lime2d.png" />
         </div>
-        <div class="project">
-            <div class="title">
-                BigNumber
-            </div>
-            <div class="description">
-                BigNumber is a C++ class that allows for the creation and computation of arbitrary-length integers.<br/>
-                <div class="pbs">
-                    <a href="http://bit.ly/1qIlgvt" target="_blank" class="projectButton">Github</a>
-                    <a href="https://github.com/Limeoats/BigNumber/releases/tag/1.0" target="_blank" class="projectButton">Download</a>
-                </div>
-            </div>
+        <div class="project-background"></div>
+        <div class="project-content">
+          <h3>Lime2D</h3>
+          <div class="project-description">
+            An open source in-game map/animation editor for 2D C++ SFML game development projects. You can use it to edit maps and animations
+            in real-time with your player, physics, collisions, and everything else being rendered.
+          </div>
+          <div class="project-tags">
+            <a class="project-tag" target="_blank" href="https://isocpp.org">C++</a>
+            <a class="project-tag" target="_blank" href="https://www.lua.org/">Lua</a>
+            <a class="project-tag" target="_blank" href="https://www.sfml-dev.org">SFML</a>
+            <a class="project-tag" target="_blank" href="https://github.com/ocornut/imgui">ImGUI</a>
+          </div>
+          <div class="project-buttons">
+            <a class="project-button" href="lime2d.html">Open</a>
+            <a class="project-button" target="_blank" href="http://www.github.com/limeoats/lime2d">Source code</a>
+          </div>
+          <div class="twitter-share">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.limeoats.com/lime2d.html"
+              data-via="Limeoats" data-text="Lime2D">Tweet</a>
+          </div>
         </div>
-        <div class="project">
-            <div class="title">
-                Lime2D
-            </div>
-            <div class="description">
-                An open source in-game map/animation editor for 2D C++ SFML game development projects.
-                You can use it to edit maps and animations in real-time with your player, physics, collisions, and
-                everything else being rendered. This makes for extremely efficient 2D level creation.<br/>
-                <div class="pbs">
-                    <a href="lime2d.html" class="projectButton">Open</a>
-                    <a href="https://github.com/Limeoats/Lime2D" target="_blank" class="projectButton">Github</a>
-                    <a href="lime2d-setup-guide.html" class="projectButton">Tutorial</a>
-                    <a href="https://www.youtube.com/watch?v=iHNyOIGB0PE" target="_blank" class="projectButton">Video</a>
-                </div>
-            </div>
-        </div>
-        <div class="project">
-            <div class="title">
-                Project Euler
-            </div>
-            <div class="description">
-                I spend a lot of my time working on solutions to the Project Euler problems in C++.<br/>
-                <div class="pbs">
-                    <a href="http://github.com/limeoats/project-euler" target="_blank" class="projectButton">Github</a>
-                    <a href="http://projecteuler.net" target="_blank" class="projectButton">Website</a>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    <div id="mainBlog" style="display: none;">
-        <div class="post">
-            <div class="title">
-                CLion and CMake
-                <span class="date">June 24, 2016</span>
-            </div>
-            <div class="description">
-                JetBrains CLion is a fantastic IDE for developing C++ applications. In this post, learn how to create
-                a static library in CLion and then link to that library from a separate application. Every step of the
-                process is covered, including examples and images.
-                <div class="pbs">
-                    <a href="http://bit.ly/28RRuMV" class="projectButton">Read</a>
-                    <a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.limeoats.com%2Fclion-and-cmake.html&ref_src=twsrc%5Etfw&text=Limeoats%20%7C%20CLion%2C%20CMake%2C%20and%20Statically%20Linked%20Libraries&tw_p=tweetbutton&url=http%3A%2F%2Fwww.limeoats.com%2Fclion-and-cmake.html&via=Limeoats" target="_blank" class="projectButton">Share</a>
-                </div>
-            </div>
+
+    <div class="section-container">
+      <div class="project-item">
+        <div class="project-image">
+          <img src="images/bignumber.png" />
         </div>
-        <div class="post">
-            <div class="title">
-                3D Lagging Camera in Unity
-                <span class="date">March 25, 2016</span>
-            </div>
-            <div class="description">
-                Learn how to create a camera that follows the player in Unity3D. This is not a regular third person
-                camera, however, because it lags slightly behind the player. The result is very smooth camera movement
-                for any third person game.
-                <div class="pbs">
-                    <a href="http://bit.ly/1XTa6yO" class="projectButton">Read</a>
-                    <a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%3A63343%2Flimeoats.github.io%2F3d-lagging-camera-unity.html%3F_ijt%3D2df3ao6qed9erju9ukr9j7vand&ref_src=twsrc%5Etfw&text=Limeoats%20%7C%203D%20Lagging%20Camera%20in%20Unity&tw_p=tweetbutton&url=http%3A%2F%2Fwww.limeoats.com%2Fwriting%2F3d_lagging_camera.php&via=Limeoats" target="_blank" class="projectButton">Share</a>
-                </div>
-            </div>
+        <div class="project-background"></div>
+        <div class="project-content">
+          <h3>BigNumber</h3>
+          <div class="project-description">
+            BigNumber is a C++ class that allows for the creation and computation of arbitrary-length integers. Most common mathematical
+            operations are supported.
+          </div>
+          <div class="project-tags">
+            <a class="project-tag" target="_blank" href="https://isocpp.org">C++</a>
+          </div>
+          <div class="project-buttons">
+            <a class="project-button" target="_blank" href="https://github.com/Limeoats/BigNumber/releases/tag/1.0">Download</a>
+            <a class="project-button" target="_blank" href="https://github.com/limeoats/bignumber">Source code</a>
+          </div>
+          <div class="twitter-share">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.github.com/Limeoats/BigNumber"
+              data-via="Limeoats" data-text="BigNumber">Tweet</a>
+          </div>
         </div>
+      </div>
     </div>
-    <div id="mainPublications" style="display: none;">
-        <div class="publication">
-            <div class="title">
-                Increasing Precision for Extended Reach 3D Manipulation
-            </div>
-            <div class="description">
-                One topic I've researched in virtual reality is the precise manipulation of objects far away from the
-                user. A colleague and I implemented a solution to this issue, ran a series of experiments, and compiled
-                the data into an article. This article was featured in the International Journal of Virtual Reality.
-                <div class="pbs">
-                    <a href="http://bit.ly/1N9dHr4" class="projectButton">Read</a>
-                </div>
-            </div>
+
+    <div class="section-container">
+      <div class="project-item">
+        <div class="project-image">
+          <img src="images/projecteuler.png" />
         </div>
-    </div>
-    <div id="mainVideos" style="display: none;">
-        <div class="video">
-            <div class="title">Lime2D - Lua Console</div>
-            <div class="youtube" data-embed="4A07eRQyJY4">
-                <div class="play-button"></div>
-            </div>
+        <div class="project-background"></div>
+        <div class="project-content">
+          <h3>Project Euler</h3>
+          <div class="project-description">
+            I spend a lot of my time working on solutions to the Project Euler math problems in C++.
+          </div>
+          <div class="project-tags">
+            <a class="project-tag" target="_blank" href="https://isocpp.org">C++</a>
+            <a class="project-tag" target="_blank" href="https://www.github.com/limeoats/bignumber">BigNumber</a>
+          </div>
+          <div class="project-buttons">
+            <a class="project-button" target="_blank" href="http://www.projecteuler.net">View</a>
+            <a class="project-button" target="_blank" href="http://www.github.com/limeoats/project-euler">Source code</a>
+          </div>
         </div>
-        <div class="video">
-            <div class="title">Lime2D - Integrated with a real game</div>
-            <div class="youtube" data-embed="pCf6hkEYwu4">
-                <div class="play-button"></div>
-            </div>
+      </div>
+    </div>
+
+    <div class="section-container">
+      <div class="project-item">
+        <div class="project-image">
+          <img src="images/anoteforlime.png" />
         </div>
-        <div class="video">
-            <div class="title">Lime2D - Getting started</div>
-            <div class="youtube" data-embed="iHNyOIGB0PE">
-                <div class="play-button"></div>
-            </div>
+        <div class="project-background"></div>
+        <div class="project-content">
+          <h3>A Note For Lime</h3>
+          <div class="project-description">
+            For our one year anniversary, I made my girlfriend a game. Oats needs to deliver a very important message to Lime, but he
+            can't do it without your help. Navigate through multiple levels of tricky platforming to win!
+          </div>
+          <div class="project-tags">
+            <a class="project-tag" target="_blank" href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">C#</a>
+            <a class="project-tag" target="_blank" href="http://www.unity3d.com">Unity</a>
+          </div>
+          <div class="project-buttons">
+            <a class="project-button" href="a-note-for-lime.html">Open</a>
+          </div>
+          <div class="twitter-share">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.limeoats.com/a-note-for-lime.html"
+              data-via="Limeoats" data-text="A Note For Lime">Tweet</a>
+          </div>
         </div>
+      </div>
     </div>
-    <hr/>
-    <div>
-        <h3>Donations</h3>
-        <p>If you're feeling generous and would like to support my development projects, you can donate by
-            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q6CFUKQM48AMA"
-               target="_blank">clicking here.</a>
-            <br/>Every donation that comes my way means a lot to me and any amount is appreciated.
-        </p>
+
+
+    <div class="category-title">
+      <a name="writing"></a>
+      { Writing }
     </div>
-    <hr/>
-    <div>
-        <h3>Contact me</h3>
-        <p>If you would like to contact me, you can...</p>
-        <ul>
-            <li>Tweet at me <a href="https://twitter.com/limeoats" target="_blank">@Limeoats</a></li>
-            <li>Join my <a href="https://discord.gg/TwbAEb4" target="_blank">Discord server</a></li>
-            <li>Send an email to <a href="mailto:oats@limeoats.com">oats@limeoats.com</a></li>
-        </ul>
+
+    <div class="section-container">
+      <div class="project-item">
+        <div class="project-image">
+          <img src="images/clionandcmake.png" />
+        </div>
+        <div class="project-background"></div>
+        <div class="project-content">
+          <h3>CLion and CMake</h3>
+          <div class="project-description">
+            JetBrains CLion is a fantastic IDE for developing C++ applications. In this post, learn how to create a static library in
+            CLion and then link to that library from a separate application. Every step of the process is covered, including
+            examples and images.
+          </div>
+          <div class="project-tags">
+            <a class="project-tag" target="_blank" href="https://isocpp.org">C++</a>
+            <a class="project-tag" target="_blank" href="https://www.jetbrains.com/clion">JetBrains CLion</a>
+          </div>
+          <div class="project-buttons">
+            <a class="project-button" href="clion-and-cmake.html">Read</a>
+          </div>
+          <div class="twitter-share">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.limeoats.com/clion-and-cmake.html"
+              data-via="Limeoats" data-text="CLion and CMake">Tweet</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-        <footer class="site-footer">
-            <span class="site-footer-credits">&copy; 2012<span id="currentYear"></span> Limeoats</span>
-        </footer>
+
+    <div class="section-container">
+      <div class="project-item">
+        <div class="project-image">
+          <img src="images/3dlaggingcamera.png" />
+        </div>
+        <div class="project-background"></div>
+        <div class="project-content">
+          <h3>3D Lagging Camera in Unity</h3>
+          <div class="project-description">
+            Learn how to create a camera that follows the player in Unity3D. This is not a regular third person camera, however, because
+            it lags slighty behind the player. The result is very smooth camera movement for any third person game.
+          </div>
+          <div class="project-tags">
+            <a class="project-tag" target="_blank" href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">C#</a>
+            <a class="project-tag" target="_blank" href="http://www.unity3d.com">Unity</a>
+          </div>
+          <div class="project-buttons">
+            <a class="project-button" href="3d-lagging-camera-unity.html">Read</a>
+          </div>
+          <div class="twitter-share">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.limeoats.com/3d-lagging-camera-unity.html"
+              data-via="Limeoats" data-text="3D Lagging Camera in Unity">Tweet</a>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+
+
+    <div class="category-title">
+      <a name="publications"></a>
+      { Publications }
+    </div>
+
+
+    <div class="section-container">
+      <div class="project-item">
+        <div class="project-image">
+          <img src="images/sve.png" />
+        </div>
+        <div class="project-background"></div>
+        <div class="project-content">
+          <h3>Increasing Precision for Extended Reach 3D Manipulation</h3>
+          <div class="project-description">
+            One topic I've researched in virtual reality is the precise manipulation of objects far away from the user. A colleague and
+            I implemented a solution to this issue, ran a series of experiments, and compiled the data into an article. This
+            article was published and featured in the International Journal of Virtual Reality.
+          </div>
+          <div class="project-tags">
+            <a class="project-tag" target="_blank" href="https://isocpp.org">C++</a>
+            <a class="project-tag" target="_blank" href="http://ijvr.org/web/platform/home">IJVR</a>
+          </div>
+          <div class="project-buttons">
+            <a class="project-button" href="http://bit.ly/1N9dHr4">Read</a>
+          </div>
+          <div class="twitter-share">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.limeoats.com/downloads/ijvr2013.pdf"
+              data-via="Limeoats" data-text="Increasing Precision for Extended Reach 3D Manipulation">Tweet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="category-title">
+      <a name="contact"></a>
+      { Contact }
+    </div>
+
+    <div class="section-container">
+      <div class="project-item">
+        <div class="project-image">
+          <img src="images/contactme.png" />
+        </div>
+        <div class="project-background"></div>
+        <div class="project-content">
+          <h3>To contact me, you can...</h3>
+          <div class="project-description">
+            <ul>
+              <li>Tweet at me
+                <a href="https://www.twitter.com/limeoats" target="_blank">@Limeoats</a>
+              </li>
+              <li>Join my
+                <a href="discord.html" target="_blank">Discord server</a>
+              </li>
+              <li>Send an email to
+                <a href="mailto:oats@limeoats.com">oats@limeoats.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="copyright">
+      &copy; 2012
+      <span id="currentYear"></span>
+      <a href="http://www.limeoats.com">Limeoats</a>
+    </div>
+    <div class="footer-icons">
+      <a href="https://www.twitter.com/limeoats" target="_blank">
+        <img src="images/twitter.png" title="Twitter" />
+      </a>
+      <a href="https://www.instagram.com/limeoats" target="_blank">
+        <img src="images/instagram.png" title="Instagram" />
+        <a href="https://www.youtube.com/limeoats" target="_blank">
+          <img src="images/youtube.png" title="Youtube" />
+        </a>
+        <a href="https://www.github.com/limeoats" target="_blank">
+          <img src="images/github.png" title="Github" />
+        </a>
+    </div>
+  </div>
+
 </body>
+
 </html>

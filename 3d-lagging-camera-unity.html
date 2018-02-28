@@ -1,48 +1,31 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Limeoats | 3D Lagging Camera in Unity</title>
+    <title>3D Lagging Camera in Unity | Limeoats</title>
     <link rel="canonical" href="http://www.limeoats.com/3d-lagging-camera-unity.html"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="css/syntaxhighlight.css">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="css/github-light.css" media="screen">
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/favicon/apple-touch-icon-60x60.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/favicon/apple-touch-icon-76x76.png"/>
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon/pple-touch-icon-152x152.png"/>
-    <link rel="icon" type="image/png" href="images/favicon/favicon-196x196.png" sizes="196x196"/>
-    <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96"/>
-    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32"/>
-    <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16"/>
-    <link rel="icon" type="image/png" href="images/favicon/favicon-128.png" sizes="128x128"/>
-    <meta name="application-name" content="&nbsp;"/>
-    <meta name="msapplication-TileColor" content="#FFFFFF"/>
-    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png"/>
-    <meta name="msapplication-square70x70logo" content="images/favicon/mstile-70x70.png"/>
-    <meta name="msapplication-square150x150logo" content="images/favicon/mstile-150x150.png"/>
-    <meta name="msapplication-wide310x150logo" content="images/favicon/mstile-310x150.png"/>
-    <meta name="msapplication-square310x310logo" content="images/favicon/mstile-310x310.png"/>
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description"
-          content="A tutorial on how I created a 3rd Person camera in Unity that follows and lags behind the player.">
+    <meta name="description" content="A tutorial on how I created a 3rd Person camera in Unity that follows and lags behind the player.">
     <meta name="author" content="Limeoats">
 
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/syntaxhighlight.css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
     <script src="js/highlight.pack.js"></script>
+    <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
     <script src="js/main.js" type="text/javascript"></script>
+
     <script>hljs.initHighlightingOnLoad();</script>
 
     <script>
-        //Google analytics
-        (function (i, s, o, g, r, a, m) {
+      //Google analytics
+      (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
                     (i[r].q = i[r].q || []).push(arguments)
@@ -53,282 +36,310 @@
             a.src = g;
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
         ga('create', 'UA-78321209-1', 'auto');
         ga('send', 'pageview');
     </script>
+
 </head>
+
 <body>
-<meta itemprop="name" content="Limeoats | 3D Lagging Camera in Unity">
-<meta itemprop="description"
-      content="A tutorial on how I created a 3rd Person camera in Unity that follows and lags behind the player.">
-<section class="page-header">
-    <h1 class="project-name"><a href="index.html">Limeoats</a></h1>
-    <div class="project-icons">
-        <a href="https://www.twitter.com/limeoats" target="_blank"><img src="images/twitter-icon.png" title="Twitter" /></a>
-        <a href="https://www.youtube.com/channel/UC1azHQrx_NgGnEv5KUZB2jA" target="_blank"><img src="images/youtube-icon.png" title="YouTube" /></a>
-        <a href="https://www.twitch.tv/limeoats" target="_blank"><img src="images/twitch-icon.png" title="Twitch" /></a>
-        <a href="https://www.github.com/limeoats" target="_blank"><img src="images/github-icon.png" title="Github" /></a>
-        <a href="https://www.linkedin.com/pub/mark-guerra/66/a6a/107" target="_blank"><img src="images/linkedin-icon.png" title="LinkedIn" /></a>
-        <a href="https://discord.gg/TwbAEb4" target="_blank"><img src="images/discord-icon.png" title="Discord" id="discordButton" /></a>
+    <meta itemprop="name" content=" 3D Lagging Camera in Unity | Limeoats">
+    <meta itemprop="description" content="A tutorial on how I created a 3rd Person camera in Unity that follows and lags behind the player.">
+  <nav class="navbar navbar-expand-sm navbar-light bg-faded">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Brand -->
+    <a class="navbar-brand" href="http://www.limeoats.com">
+      <img src="http://www.limeoats.com/images/favicon/apple-touch-icon-72x72.png" />
+    </a>
+    <a class="header-name link-no-underline" href="http://www.limeoats.com">Limeoats</span>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="nav-content">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#writing">Writing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#publications">Publications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#contact">Contact</a>
+        </li>
+      </ul>
     </div>
-</section>
-<section class="main-content">
-    <div>
-        <h2>3D Lagging Camera in Unity</h2>
-    </div>
-    <br/>
-    <p>
-        Hey everyone! As you all know by now, I am currently in the process of creating a 3rd person 3D game using
-        Unity. One very important component
-        of such a game is the camera.
-        <br/><br/>
-        <strong>** Please note: This tutorial is not in any way only for Unity users. The screenshots I provide and some
-            of the functions
-            I use may be exclusive to Unity, however the general concept is entirely universal **</strong>
-        <br/><br/>
-        Anyway, let's get started!
-        <br/><br/>
-        A 3D camera is not always easy to work with, even in such a great program like Unity. If you've ever dabbled in
-        Unity before at all, you will recognize what
-        you see in this picture:
-        <br/><br/>
-        <img src="images/3d-lagging-camera/camera_in_scene.png"/>
-        <br/><br/>
-        For those of you who aren't familiar with Unity, in the bottom right corner of the picture is the actual camera
-        object. This camera is capable of viewing whatever
-        it is pointed at, and then displaying it to the game's screen. Then, of course, in front of it is my player, and
-        a cube on the ground to play around with.
-        <br/><br/>
-        There are a few methods for getting the camera to follow the player in a 3rd person game.
-        <br/><br/>
-        One commonly used method is making the camera a child of the player. This way, whenever (and wherever) the
-        player moves, the camera will also move.
-        <br/>
-        This technically accomplishes the goal of having the camera follow the player, but there are some negative
-        implications with this structure.
-        <br/>
-        The major problem with making the camera a child of the player is that <strong>all transformations that apply to
-        the player also apply to the camera. </strong>
-        This means that if the player's model rotates, the camera is also going to rotate with it (and vice-versa). This
-        becomes a major issue in a 3rd person game,
-        since the player can never truly rotate without the camera copying it.
-        <br/><br/>
-        Another method, the one I prefer and use, is to have the camera entirely independent of the player. To make the
-        camera follow the player, the camera's script
-        keeps track of the player's position at all times and moves accordingly. The camera is simply given an offset to
-        stay a certain distance away from the player.
-        <br/><br/>
-        I'm going to go ahead and post the code for the camera, and then explain exactly what is going on.
-        <br/><br/>
-    <pre><code class="csharp">
+  </nav>
+
+  <div class="main-container">
+    <div class="section-container">
+      <div class="section-title">
+        3D Lagging Camera in Unity
+      </div>
+      <div class="section-text-small">
+        <p>
+          Hey everyone! As you all know by now, I am currently in the process of creating a 3rd person 3D game using Unity. One very important component of such a game is the camera.
+        </p>
+        <p>
+          <strong>** Please note: This tutorial is not in any way only for Unity users. The screenshots I provide and some of the functions I use may be exclusive to Unity, however the general concept is entirely universal. **</strong>
+        </p>
+        <p>
+          Anyway, let's get started!
+        </p>
+        <p>
+          A 3D camera is not always easy to work with, even in such a great program like Unity. If you've ever dabbled in Unity before at all, you will recognize what you see in this picture:
+        </p>
+        <p>
+          <img src="images/3d-lagging-camera/camera-in-scene.png" alt="3D Lagging Camera" />
+        </p>
+        <p>
+          For those of you who aren't familiar with Unity, in the bottom right corner of the picture is the actual camera object. This camera is capable of viewing whatever it is pointed at, and then displaying it to the game's screen. Then, of course, in front of it is my player, and a cube on the ground to play around with.
+        </p>
+        <p>
+          There are a few methods for getting the camera to follow the player in a 3rd person game.
+        </p>
+        <p>
+          One commonly used method is making the camera a child of the player. This way, whenever (and wherever) the player moves, the camera will also move.
+        </p>
+        <p>
+          This technically accomplishes the goal of having the camera follow the player, but there are some negative implications with this structure.
+        </p>
+        <p>
+          The major problem with making the camera a child of the player is that <strong>all transformations that apply to the player also apply to the camera.</strong> This means that if the player's model rotates, the camera is also going to rotate with it (and vice-versa). This becomes a major issue in a 3rd person game, since the player can never truly rotate without the camera copying it.
+        </p>
+        <p>
+          Another method, the one I prefer to use, is to have the camera be entirely independent of the player. To make the camera follow the player, the camera's script keeps track of the player's position at all times and moves accordingly. The camera is simply given an offset to stay a certain distance away from the player.
+        </p>
+        <p>
+          I'm going to go ahead and post the code for the camera, and then explain exactly what is going on.
+        </p>
+        <p>
+          <pre>
+            <code class="csharp">
 using UnityEngine;
 using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 
-	public Transform Target;    //The target is what the camera will look at
+  public Transform Target;                // The target is what the camera will look at
+  private Vector3 _cameraMovementVector;  // The camera input from the controller
+  private Vector3 _offset;                // The difference between the camera's position and its "target"
 
-	private Vector3 _cameraMovementVector;  //The camera input from the controller
+  void Start() {
+    // Initialize our offset to put the camera at the position we want.
+    // Through trial and error, I found that these values worked nicely and put the camera in a good spot
+    this._offset = new Vector3(this.Target.position.x - 130.0f, this.Target.position.y + 15.0f, this.Target.position.z - 105.0f);
+  }
 
-	private Vector3 _offset; 	//The difference between the camera's
-                                        //position and its "target"
+  // Use LateUpdate to ensure that the player's position actually changed (in update) before moving the camera to follow it
+  void LateUpdate () {
+    // Check for camera movement input
+    this._cameraMovementVector.x = Input.GetAxis("Right joystick X");
+    this._cameraMovementVector.y = Input.GetAxis("Right joystick Y");
 
-	void Start() {
-		//Initialize our offset to put the camera at the position we want.
-		//Through trial and error, I found that these values worked nicely
-                //and put the camera in a good spot
-		this._offset = new Vector3(this.Target.position.x - 130.0f,
-                    this.Target.position.y + 15.0f, this.Target.position.z - 105.0f);
-	}
+    // Adjust the camera's offset based on our input (for rotation)
+    this._offset = Quaternion.AngleAxis(this._cameraMovementVector.x, Vector3.up) * this._offset;
 
-	//Use LateUpdate to ensure that the player's position actually changed (in update)
-	//before moving the camera to follow it
-	void LateUpdate () {
-		//Check for camera movement input
-		this._cameraMovementVector.x = Input.GetAxis("Right joystick X");
-		this._cameraMovementVector.y = Input.GetAxis("Right joystick Y");
+    // Adjust the camera's possition based on our offset
+    this.transform.position = this.Target.position + _offset;
 
-		//Adjust the camera's offset based on our input (for rotation)
-		this._offset = Quaternion.AngleAxis(this._cameraMovementVector.x, Vector3.up)
-                    * this._offset;
-
-		//Adjust the camera's possition based on our offset
-		this.transform.position = this.Target.position + _offset;
-
-		//Adjust the camera's rotation to "look at" its target
-		this.transform.LookAt(new Vector3(this.Target.position.x,
-                    this.transform.position.y, this.Target.position.z));
-	}
+    // Adjust the camera's rotation to "look at" its target
+    this.transform.LookAt(new Vector3(this.Target.position.x, this.transform.position.y, this.Target.position.z));
+  }
 }
-        </code></pre>
-    <br/>
-    Okay, so we now have our camera script created. The comments in the code explain exactly what each line is
-    accomplishing. If you have any
-    code-specific questions, please post below and I will answer them!
-    <br/><br/>
-    When you attach it to the camera, you will notice that you have to give it a target. This is where things begin to
-    get interesting.
-    <br/><br/>
-    If you were to make the player the target of the camera, things would work quite well. This is actually how I had it
-    set up for a long time
-    until I realized that something was <em>off</em>.
-    <br/><br/>
-    With this setup, <em>the camera will immediately follow every movement the player makes. <strong>Instantly.</strong></em>
-    <br/><br/>
-    Basically, the player will always be in the center of the screen (or however you initially position the camera). We
-    don't want this. We want the player
-    to have some room to walk before the camera starts following. This makes everything much more realistic and
-    enjoyable to play.
-    <br/><br/>
-    This is where the concept of a "lagging camera" finally comes into play.
-    <br/><br/>
-    My definition of a lagging camera is one that <em>chases after</em> its target, rather than following it one-to-one.
-    To accomplish this,
-    we're going to have a target that is entirely separate from the player. We will call this the <strong>Camera
-    Tracker.</strong>
-    <br/><br/>
-    Let's begin by creating a new 3D object in Unity. I choose to make mine a sphere, but it doesn't matter what shape
-    you choose. Place the
-    3D object somewhere around where the player's feet are going to start out when the game runs.
-    <br/><br/>
-    <img src="images/3d-lagging-camera/camera_tracker_shown.png"/>
-    <br/><br/>
-    Once the object is there, you need to turn off some of its features. You'll want to either disable or remove the
-    <strong>mesh renderer</strong>
-    and the <strong>collider</strong> on the object. When the mesh renderer is disabled, it will become invisible in
-    your scene and the game.
-    The inspector should look something like this:
-    <br/><br/>
-    <img src="images/3d-lagging-camera/camera_tracker_inspector_1.png"/>
-    <br/><br/>
-    This 3D object that you just placed is going to chase after the player when he or she moves too far away from it.
-    Let's write the code for that now!
-    <br/><br/>
-    <pre><code class="csharp">
+            </code>
+          </pre>
+        </p>
+        <p>
+          Okay, so we now have our camera script created. The comments in the code explain exactly what each line is accomplishing. If you have any code-specific questions, please post below and I will answer them.
+        </p>
+        <p>
+          When you attach this script to the camera, you will notice that you have to give it a target. This is where things begin to get interesting.
+        </p>
+        <p>
+          If you were to make the player the target of the camera, things would work quite well. This is actually how I had it set up for a long time until I realized that something was <em>off</em>.
+        </p>
+        <p>
+          With this setup, <em>the camera will immediately follow every movement the player makes. <strong>Instantly.</strong></em>
+        </p>
+        <p>
+          Basically, the player will always be in the center of the screen (or however you initially position the camera). We don't want this. We want the player to have some room to walk before the camera starts following. This makes everything much more realistic and enjoyable to play.
+        </p>
+        <p>
+          This is where the concept of a <strong>lagging camera</strong> finally comes into play.
+        </p>
+        <p>
+          My definition of a lagging camera is one that <em>chases after</em> its target, rather than following it one-to-one. To accomplish this, we're going to have a target that is entirely separate from the player. We will call this the <strong>Camera Tracker</strong>.
+        </p>
+        <p>
+          Let's begin by creating a new 3D object in Unity. I choose to make mine a sphere, but it doesn't matter what shape you choose. Place the 3D object somewhere around where the player's feet are going to start out when the game runs.
+        </p>
+        <p>
+          <img src="images/3d-lagging-camera/camera-tracker-shown.png" alt="3D Lagging Camera" />
+        </p>
+        <p>
+          Once the object is there, you need to turn off some of its features. You'll want to either disable or remove the <strong>mesh renderer</strong> and the <strong>collider</strong> on the object. When the mesh renderer is disabled, it will become invisible in your scene and the game. The inspector should look something like this:
+        </p>
+        <p>
+          <img src="images/3d-lagging-camera/camera-tracker-inspector-1.png" alt="3D Lagging Camera" />
+        </p>
+        <p>
+          This 3D object that you just placed is going to chase after the player when he or she moves too far away from it. Let's write the code for that now!
+        </p>
+        <p>
+          <pre>
+            <code>
 using UnityEngine;
 using System.Collections;
 
 public class CameraTracker : MonoBehaviour {
 
-	public GameObject Player;
-	private Vector3 _endPoint;
+  public GameObject Player;
+  private Vector3 _endPoint;
 
-	private const float DISTANCE_THRESHOLD = 6.0f;
+  private const float DISTANCE_THRESHOLD = 6.0f;
 
-	void Start () {
-		if (this.Player != null) {
-			this._endPoint = this.Player.transform.position;
-		}
-	}
+  void Start () {
+    if (this.Player != null) {
+      this._endPoint = this.Player.transform.position;
+    }
+  }
 
-	void Update () {
-		if (this.Player != null) {
-			//Check if the distance between the player and the ball is big enough
-                        //to start moving
-			if (Vector3.Distance(this.Player.transform.position,
-                            this.transform.position) > DISTANCE_THRESHOLD) {
-				//Start moving towards the player
-				this.transform.position = Vector3.Slerp(
-                                    this.transform.position, this._endPoint, Time.deltaTime);
-			}
-			//Check if the tracker has finally reached its end point.
-			//If it hasn't, keep on moving.
-			if (this.transform.position != this._endPoint) {
-				this.transform.position = Vector3.Slerp(
-                                    this.transform.position, this._endPoint, Time.deltaTime);
-			}
-			//Update the last frame's player position
-			this._endPoint = this.Player.transform.position;
-		}
-	}
-}
-        </code></pre>
-    <br/>
-    With this code, the tracker will constantly be aware of the player's position in the world. If, at any point, the
-    player gets too far away from the tracker
-    (as defined by <code>DISTANCE_THRESHOLD</code>), the tracker will begin moving towards the player.
-    <br/><br/>
-    It's important to note the method of moving the tracker we are using. We are using something called <code>Vector3.Slerp</code>.
-    "Slerp" stands for
-    Spherical Linear Interpolation.
-    <br/><br/>
-    A <em>regular</em> linear interpolation moves an object from a starting position to an ending position over a
-    certain amount of time at a constant speed.
-    <br/>
-    A <em>spherical</em> linear interpolation does the same thing, however its graph is more of a curve (think a quarter
-    of a sphere). As a result, as the tracker
-    approaches its end point, it will gradually slow down as the curve in the graph evens out.
-    <br/><br/>
-    As a result, the 3D object will move at a fairly steady pace towards the player until it gets close to it, when it
-    will then slow down. This makes
-    for very smooth camera movement.
-    <br/><br/>
-    Now, if you haven't guessed by now, the camera will be tracking this 3D object instead of the player. This is the
-    basic structure we have set up:
-    <br/><br/>
-    <img src="images/3d-lagging-camera/camera_structure.png"/>
-    <br/><br/>
-    The camera will follow the 3D Tracker, which will be chasing after the player whenever appropriate.
-    <br/><br/>
-    Okay! The only thing left to do now is make sure everything is connected properly.
-    <br/><br/>
-    Go back into Unity and select the camera. If you haven't yet, attach the CameraFollow script to it. You'll need to
-    connect the Tracker to it as the target.
-    <br/><br/>
-    <img src="images/3d-lagging-camera/camera_inspector_1.png"/>
-    <br/><br/>
-    Next, select the 3D Tracker you created and attach the CameraTracker script if you haven't already. You'll then need
-    to connect the Player to it as the target.
-    <br/><br/>
-    <img src="images/3d-lagging-camera/camera_tracker_inspector_2.png"/>
-    <br/><br/>
-    ...and that's it! When you run the game, the camera should be looking at the invisible tracker (so basically staring
-    at your player if you positioned the
-    tracker correctly). When the player moves, the tracker (and camera) won't move until you are <code>DISTANCE_THRESHOLD</code>
-    units away from it. This gives you
-    the desired camera lag!
-    <br/>
-    <video width="100%" height="400" autoplay="" loop="" poster="">
-        <source src="images/3d-lagging-camera/camera_video.ogv">
-        <source src="images/3d-lagging-camera/camera_video.mov">
-        Your browser does not support this video.
-    </video>
-    <br/>
-    If you have any questions, comments, or suggestions, please post them below.
-    <br/><br/>
-    Happy developing :-)
-    <br/><br/>
-    <a href="https://twitter.com/share" class="twitter-share-button"
-       data-url="http://www.limeoats.com/writing/3d_lagging_camera.php" data-via="Limeoats">Tweet</a>
-    <script>!function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-        if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = p + '://platform.twitter.com/widgets.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }
-    }(document, 'script', 'twitter-wjs');</script>
-    <br/>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES * * */
-        var disqus_shortname = 'limeoats';
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <div>
-        <footer class="site-footer">
-            <span class="site-footer-credits">&copy; 2012<span id="currentYear"></span> Limeoats</span>
-        </footer>
+  void Update () {
+    if (this.Player != null) {
+      // Check if the distance between the player and the ball is big enough to start moving
+      if (Vector3.Distance(this.Player.transform.position, this.transform.position) > DISTANCE_THRESHOLD) {
+        // Start moving towards the player
+        this.transform.position = Vector3.Slerp(this.transform.position, this._endPoint, Time.deltaTime);
+      }
+      // Check if the tracker has finally reached its end point. If it hasn't, keep on moving.
+      if (this.transform.position != this._endPoint) {
+        this.transform.position = Vector3.Slerp(this.transform.position, this._endPoint, Time.deltaTime);
+      }
+      // Update the last frame's player position
+      this._endPoint = this.Player.transform.position;
+    }
+  }
+}              
+            </code>
+          </pre>
+        </p>
+        <p>
+          With this code, the tracker will constantly be aware of the player's position in the world. If at any point the player gets too far away from the tracker (as defined by <code>DISTANCE_THRESHOLD</code>), the tracker will begin moving towards the player.
+        </p>
+        <p>
+          It's important to note the method of moving the tracker we are using. We are using something called <code>Vector3.Slerp</code>. "Slerp" stands for Spherical Linear Interpolation.
+        </p>
+        <p>
+          A <em>regular</em> linear interpolation moves an object from a starting position to an ending position over a certain amount of time at a constant speed.
+          <br/>
+          A <em>spherical</em> linear interpolation does the same thing, however its graph is more of a curve (imagine a quarter of a sphere). As a result, as the tracker approaches its end point, it will gradually slow down as the curve in the graph evens out.
+        </p>
+        <p>
+          Therefore, the 3D object will move at a fairly steady pace towards the player until it gets close to it, when it will then slow down. This makes for very smooth camera movement.
+        </p>
+        <p>
+          Now, if you haven't guessed by now, the camera will be tracking this 3D object instead of the player. This is the basic structure we have set up:
+        </p>
+        <p>
+          <img src="images/3d-lagging-camera/camera-structure.png" alt="3D Lagging Camera" />
+        </p>
+        <p>
+          The camera will follow the 3D Tracker, which will be chasing after the player whenever appropriate.
+        </p>
+        <p>
+          Okay! The only thing left to do now is make sure everything is connected properly.
+        </p>
+        <p>
+          Go back into Unity and select the camera. If you haven't yet, attach the CameraFollow script to it. You'll need to connect the tracker to it as the target.
+        </p>
+        <p>
+          <img src="images/3d-lagging-camera/camera-inspector-1.png" alt="3D Lagging Camera" />
+        </p>
+        <p>
+          Next, select the 3D Tracker you created and attach the CameraTracker script if you haven't already. You'll then need to connect the Player to it as the target.
+        </p>
+        <p>
+          <img src="images/3d-lagging-camera/camera-tracker-inspector-2.png" alt="3D Lagging Camera" />
+        </p>
+        <p>
+          ... and that's it! When you runt he game, the camera should be looking at the invisible tracker (so basically staring at your player if you positioned the tracker correctly). When the player moves, the tracker (and camera) won't move until you are <code>DISTANCE_THRESHOLD</code> units away from it. This gives you the desired camera lag!
+        </p>
+        <p>
+          <video width="100%" autoplay="" loop="" poster="">
+            <source src="images/3d-lagging-camera/camera-video.ogv">
+            <source src="images/3d-lagging-camera/camera-video.mov">
+            Your browser does not support this video.
+          </video>
+        </p>
+        <p>
+          If you have any questions, comments, or suggestions, please post them below.
+        </p>
+        <p>
+          Happy developing :-)
+        </p>
+
+        <p>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.limeoats.com/3d-lagging-camera-unity.html"
+            data-via="Limeoats">Tweet</a>
+          <script>
+            !function (d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+              if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + '://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js, fjs);
+              }
+            }(document, 'script', 'twitter-wjs');</script>
+        </p>
+        <p>
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES * * */
+            var disqus_shortname = 'limeoats';
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript';
+              dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
+        </p>
+      </div>
     </div>
-</section>
+  </div>
+
+  <div class="footer">
+    <div class="copyright">
+      &copy; 2012
+      <span id="currentYear"></span>
+      <a href="http://www.limeoats.com">Limeoats</a>
+    </div>
+    <div class="footer-icons">
+      <a href="https://www.twitter.com/limeoats" target="_blank">
+        <img src="images/twitter.png" title="Twitter" />
+      </a>
+      <a href="https://www.instagram.com/limeoats" target="_blank">
+        <img src="images/instagram.png" title="Instagram" />
+        <a href="https://www.youtube.com/limeoats" target="_blank">
+          <img src="images/youtube.png" title="Youtube" />
+        </a>
+        <a href="https://www.github.com/limeoats" target="_blank">
+          <img src="images/github.png" title="Github" />
+        </a>
+    </div>
+  </div>
 </body>
+
 </html>
