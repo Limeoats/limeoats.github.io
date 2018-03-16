@@ -122,41 +122,7 @@
           I'm going to go ahead and post the code for the camera, and then explain exactly what is going on.
         </p>
         <p>
-          <pre>
-            <code class="csharp">
-using UnityEngine;
-using System.Collections;
-
-public class CameraFollow : MonoBehaviour {
-
-  public Transform Target;                // The target is what the camera will look at
-  private Vector3 _cameraMovementVector;  // The camera input from the controller
-  private Vector3 _offset;                // The difference between the camera's position and its "target"
-
-  void Start() {
-    // Initialize our offset to put the camera at the position we want.
-    // Through trial and error, I found that these values worked nicely and put the camera in a good spot
-    this._offset = new Vector3(this.Target.position.x - 130.0f, this.Target.position.y + 15.0f, this.Target.position.z - 105.0f);
-  }
-
-  // Use LateUpdate to ensure that the player's position actually changed (in update) before moving the camera to follow it
-  void LateUpdate () {
-    // Check for camera movement input
-    this._cameraMovementVector.x = Input.GetAxis("Right joystick X");
-    this._cameraMovementVector.y = Input.GetAxis("Right joystick Y");
-
-    // Adjust the camera's offset based on our input (for rotation)
-    this._offset = Quaternion.AngleAxis(this._cameraMovementVector.x, Vector3.up) * this._offset;
-
-    // Adjust the camera's possition based on our offset
-    this.transform.position = this.Target.position + _offset;
-
-    // Adjust the camera's rotation to "look at" its target
-    this.transform.LookAt(new Vector3(this.Target.position.x, this.transform.position.y, this.Target.position.z));
-  }
-}
-            </code>
-          </pre>
+          <script src="https://gist.github.com/Limeoats/a090a31516f084a10a7522de64f1554f.js"></script>
         </p>
         <p>
           Okay, so we now have our camera script created. The comments in the code explain exactly what each line is accomplishing. If you have any code-specific questions, please post below and I will answer them.
@@ -195,42 +161,7 @@ public class CameraFollow : MonoBehaviour {
           This 3D object that you just placed is going to chase after the player when he or she moves too far away from it. Let's write the code for that now!
         </p>
         <p>
-          <pre>
-            <code>
-using UnityEngine;
-using System.Collections;
-
-public class CameraTracker : MonoBehaviour {
-
-  public GameObject Player;
-  private Vector3 _endPoint;
-
-  private const float DISTANCE_THRESHOLD = 6.0f;
-
-  void Start () {
-    if (this.Player != null) {
-      this._endPoint = this.Player.transform.position;
-    }
-  }
-
-  void Update () {
-    if (this.Player != null) {
-      // Check if the distance between the player and the ball is big enough to start moving
-      if (Vector3.Distance(this.Player.transform.position, this.transform.position) > DISTANCE_THRESHOLD) {
-        // Start moving towards the player
-        this.transform.position = Vector3.Slerp(this.transform.position, this._endPoint, Time.deltaTime);
-      }
-      // Check if the tracker has finally reached its end point. If it hasn't, keep on moving.
-      if (this.transform.position != this._endPoint) {
-        this.transform.position = Vector3.Slerp(this.transform.position, this._endPoint, Time.deltaTime);
-      }
-      // Update the last frame's player position
-      this._endPoint = this.Player.transform.position;
-    }
-  }
-}              
-            </code>
-          </pre>
+   			<script src="https://gist.github.com/Limeoats/95a09d892d3d11f2e98b35164aef7f28.js"></script>
         </p>
         <p>
           With this code, the tracker will constantly be aware of the player's position in the world. If at any point the player gets too far away from the tracker (as defined by <code>DISTANCE_THRESHOLD</code>), the tracker will begin moving towards the player.

@@ -234,30 +234,7 @@
           <strong>tinyxml2</strong> with whatever the name of your library is.
         </p>
         <p>
-          <pre>
-            <code class="python">
-# The places to look for the tinyxml2 folders
-set(FIND_TINYXML2_PATHS
-  C:/tinyxml2                               # On Windows, this is where my tinyxml2 folder is
-  ~/Libary/Frameworks/tinyxml2              # On Mac, this is where my tinyxml2 folder is
-)
-
-# The location of the include folder (and thus the header files)
-# find_path uses the paths we defined above as places to look
-# Saves the location of the header files in a variable called TINYXML2_INCLUDE_DIR
-find_path(TINYXML2_INCLUDE_DIR tinyxml2.h   # The variable to store the path in and the name of the header files
-        PATH_SUFFIXES include               # The folder name containing the header files
-        PATHS ${FIND_TINYXML2_PATHS})       # Where to look (defined above)
-
-# The location of the lib folder (and thus the .a file)
-# find_library uses the paths we defined above as places to look
-# Saves the location of the .a file in a variable called TINYXML2_LIBRARY
-find_library(TINYXML2_LIBRARY               # The variable to store where it found the .a files
-        NAMES tinyxml2                      # The name of the .a file (without the extension and without the 'lib')
-        PATH_SUFFIXES lib                   # The folder the .a file is in
-PATHS ${FIND_TINYXML2_PATHS})               # Where to look (defined above)
-            </code>
-          </pre>
+          <script src="https://gist.github.com/Limeoats/bdda274a6add4433f90cb104db6281d2.js"></script>
         </p>
         <p>
           Now all that's left is to use this CMake file from our CMakeLists.txt and the library will be linked to and ready to go!
@@ -266,11 +243,7 @@ PATHS ${FIND_TINYXML2_PATHS})               # Where to look (defined above)
           Open up CMakeLists.txt. After the line where you set your CMAKE_CXX_FLAGS, add the following line:
         </p>
         <p>
-          <pre>
-            <code>
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake") # CMAKE_CURRENT_LIST_DIR is the directory holding the CMakeLists.txt we are currently using  
-            </code>
-          </pre>
+          	<script src="https://gist.github.com/Limeoats/3764947d838d8304c0a78104c284d494.js"></script>
         </p>
         <p>
           As the comment says, ${CMAKE_CURRENT_LIST_DIR} is the directory that your CMakeLists.txt file is in. This line tells CMake
@@ -280,14 +253,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake") # CMAKE_CURRENT
           Next, add the following lines after the add_executable line:
         </p>
         <p>
-          <pre>
-            <code>
-include(FindPkgConfig)
-find_package(Tinyxml2 REQUIRED)
-include_directories(${TINYXML2_INCLUDE_DIR})
-target_link_libraries(${PROJECT_NAME} ${TINYXML2_LIBRARY})
-            </code>
-          </pre>
+			<script src="https://gist.github.com/Limeoats/9a30761d6215f552ec2c3a292dde5ca0.js"></script>
         </p>
         <p>
           As always, replace the variables above with the ones you created in your FindLibrary.cmake file from before.
