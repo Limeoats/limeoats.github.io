@@ -46,37 +46,114 @@
     </script>
 
     <script>
-      !function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-        if (!d.getElementById(id)) {
-          js = d.createElement(s);
-          js.id = id;
-          js.src = p + '://platform.twitter.com/widgets.js';
-          fjs.parentNode.insertBefore(js, fjs);
-        }
-      }(document, 'script', 'twitter-wjs');</script>
+    !function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    }(document, 'script', 'twitter-wjs');</script>
 
-    </head>
+</head>
 
-    <body>
-      <!-- Google Tag Manager (noscript) -->
+<body>
+  <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZRQCT6"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
+  <meta itemprop="name" content="Home | Limeoats">
+  <meta itemprop="description" content="Hello! My name is Mark and I enjoy programming.">
+  <nav class="navbar navbar-expand-sm navbar-light bg-faded">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <meta itemprop="name" content="Home | Limeoats">
-        <meta itemprop="description" content="Hello! My name is Mark and I enjoy programming.">
-        <nav class="navbar navbar-expand-sm navbar-light bg-faded">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Brand -->
+    <a class="navbar-brand" href="http://www.limeoats.com">
+      <img src="images/logo.png" />
+    </a>
+    <a class="header-name link-no-underline" href="http://www.limeoats.com">Limeoats</span>
 
-        <!-- Brand -->
-        <a class="navbar-brand" href="http://www.limeoats.com">
-          <img src="images/logo.png" />
-        </a>
-        <a class="header-name link-no-underline" href="http://www.limeoats.com">Limeoats</span>
+    <!-- Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="nav-content">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#writing">Writing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#publications">Publications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="main-container">
+
+    <div class="section-container">
+      <div class="section-title">
+        Welcome to Limeoats.com
+      </div>
+      <div class="section-text">
+        <p>Hello! My name is Mark and I enjoy programming. I spend a lot of my time doing all sorts of programming, including
+          game development, web development, virtual reality, and much more.</p>
+        <p>Here you can find all of the projects I've worked on, information about what I'm currently working on, some programming-related
+          blog posts, and even some published work.</p>
+        <p>If you wish to donate for any reason, please
+          <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=admin@limeoats.com&lc=US&item_name=Donation+to+Limeoats&no_note=0&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted"
+            target="_blank">click here.</a>
+        </p>
+        <p>Thanks for visiting and enjoy!</p>
+
+      </div>
+    </div>
+
+    <div class="category-title">
+      <a name="projects"></a>
+      { Projects }
+    </div>
+
+    <div class="section-container">
+      <div class="project-item">
+        <div class="project-image">
+          <img src="images/lime2d.png" />
+        </div>
+        <div class="project-background"></div>
+        <div class="project-content">
+          <h3>Lime2D</h3>
+          <div class="project-description">
+            An open source in-game map/animation editor for 2D C++ SFML game development projects. You can use it to edit maps and animations
+            in real-time with your player, physics, collisions, and everything else being rendered.
+          </div>
+          <div class="project-tags">
+            <a class="project-tag" target="_blank" href="https://isocpp.org">C++</a>
+            <a class="project-tag" target="_blank" href="https://www.lua.org/">Lua</a>
+            <a class="project-tag" target="_blank" href="https://www.sfml-dev.org">SFML</a>
+            <a class="project-tag" target="_blank" href="https://github.com/ocornut/imgui">ImGUI</a>
+          </div>
+          <div class="project-buttons">
+            <a class="project-button" href="lime2d.html">Open</a>
+            <a class="project-button" target="_blank" href="http://www.github.com/limeoats/lime2d">Source code</a>
+          </div>
+          <div class="twitter-share">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.limeoats.com/lime2d.html"
+              data-via="Limeoats" data-text="Lime2D">Tweet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+>>>>>>> 0a3af066d24ecdbc4370c4e7c3951553df3d649b
 
           <!-- Links -->
           <div class="collapse navbar-collapse justify-content-end" id="nav-content">
@@ -383,5 +460,4 @@
           </div>
 
         </body>
-
-        </html>
+</html>
