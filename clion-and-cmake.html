@@ -1,323 +1,337 @@
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>CLion and CMake | Limeoats</title>
-    <link rel="canonical" href="http://www.limeoats.com/clion-and-cmake.html"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="description" content="Learn how to create static libraries and link to them in CLion with CMake.">
-    <meta name="author" content="Limeoats">
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PZRQCT6');</script>
+<!-- End Google Tag Manager -->
 
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="css/syntaxhighlight.css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>CLion and CMake | Limeoats</title>
+<link rel="canonical" href="http://www.limeoats.com/clion-and-cmake.html"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="description" content="Learn how to create static libraries and link to them in CLion with CMake.">
+<meta name="author" content="Limeoats">
 
-    <link rel="icon" href="images/favicon.png" type="image/png" />
-    <link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="css/syntaxhighlight.css">
+<link rel="stylesheet" href="css/styles.css" type="text/css" />
 
-    <script src="js/highlight.pack.js"></script>
-    <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
-    <script src="js/bootstrap.js" type="text/javascript"></script>
-    <script src="js/main.js" type="text/javascript"></script>
+<link rel="icon" href="images/favicon.png" type="image/png" />
+<link rel="shortcut icon" href="favicon.ico" />
 
-    <script>hljs.initHighlightingOnLoad();</script>
+<script src="js/highlight.pack.js"></script>
+<script src="js/jquery-1.9.1.js" type="text/javascript"></script>
+<script src="js/bootstrap.js" type="text/javascript"></script>
+<script src="js/main.js" type="text/javascript"></script>
 
-    <script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
       //Google analytics
       (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-78321209-1', 'auto');
-        ga('send', 'pageview');
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-78321209-1', 'auto');
+      ga('send', 'pageview');
     </script>
 
-</head>
+  </head>
 
-<body>
-  <meta itemprop="name" content="CLion and CMake | Limeoats">
-  <meta itemprop="description" content="Learn how to create static libraries and link to them in CLion with CMake.">
-  <nav class="navbar navbar-expand-sm navbar-light bg-faded">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <body>
 
-    <!-- Brand -->
-    <a class="navbar-brand" href="http://www.limeoats.com">
-      <img src="images/logo.png" />
-    </a>
-    <a class="header-name link-no-underline" href="http://www.limeoats.com">Limeoats</span>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZRQCT6"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Links -->
-    <div class="collapse navbar-collapse justify-content-end" id="nav-content">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.html#projects">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.html#writing">Writing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.html#publications">Publications</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.html#contact">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+      <meta itemprop="name" content="CLion and CMake | Limeoats">
+      <meta itemprop="description" content="Learn how to create static libraries and link to them in CLion with CMake.">
+      <nav class="navbar navbar-expand-sm navbar-light bg-faded">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div class="main-container">
-    <div class="section-container">
-      <div class="section-title">
-        CLion, CMake, and Statically Linked Libraries
-      </div>
-      <div class="section-text-small">
-        <p>
-          If you're in the process of working on a project in C++, then you have probably recently made a bunch of decisions regarding
-          which operating system to use, which IDE to use, and which compiler to use.
-        </p>
-        <p>
-          The issue is that there are very few IDE / build process options that can be used [almost] universally among all major operating
-          systems.
-        </p>
-        <p>
-          The
-          <strong>best option</strong> I have found is to use
-          <a href="https://www.jetbrains.com/clion/" target="_blank">JetBrains CLion</a> in conjunction with
-          <a href="https://cmake.org/" target="_blank">CMake</a> to handle the build process. You will still need your own compiler, which may lead to some inconsistencies
-          down the road, but CLion and CMake are the closest you will be able to get to a cross platform C++ solution.
-        </p>
-        <h4>Why CLion and CMake?</h4>
-        <p>
-          I spent a
-          <strong>tremendous</strong> amount of time bouncing between different C++ IDEs because I could not find anything that satisfied
-          my needs. Being able to develop my C++ projects on both my Windows PC and my iMac is very important to me. Therefore,
-          operating system specific IDEs like Microsoft's Visual Studio and Apple's XCode were off the table immediately.
-          After years of being unsatisfied with the available options, JetBrains CLion was released and all of my problems
-          were immediately solved.
-        </p>
-        <p>
-          According to CLion's website, &quot;
-          <em>CLion project model is based on CMake - the cross-platform automatic build system. CMake itself doesn't build a
-            project but passes the build rules and targets listed in CMakeLists.txt file to a specific builder.</em>&quot;
-          <br/> CMake is built right into CLion, which makes it the obvious tool for the job. As the quote above mentions, though,
-          CMake does not actually compile the C++ code. You still need your own compiler to do that.
-        </p>
-        <p>
-          Since CLion and CMake both have cross-platform implementations, you can simply set up a C++ project in CLion, upload it to
-          Github or another remote repository, and then pull it down on a different operating system and continue developing.
-          This feature alone makes it more convenient and easy to use than Visual Studio, XCode, or even a text editor with
-          GNU Make.
-        </p>
-        <h4>CMakeLists.txt</h4>
-        <p>
-          If you are familiar with Makefiles, then you know that dealing with targets and includes can be very messy and frustrating.
-          CMake takes care of that through the use of a special file called
-          <strong>CMakeLists.txt</strong>. This file can contain everything from compiler options, libraries to link to, include
-          directories, source files, and much more.
-        </p>
-        <h4>Mini Tutorial 1: Creating a static library</h4>
-        <p>
-          I am going to walk you through the steps for creating a static library with CLion and CMake. In the next mini tutorial, we
-          will be linking to this static library from a different project.
-        </p>
-        <p>
-          Note: You must have a compiler installed before starting this tutorial. On Windows, I use MinGW. On Mac, I use Clang.
-        </p>
-        <p>
-          Start by creating a new CLion project. Before you do anything else, navigate to the project's folder you just created and
-          drop the header(s) and implementation file(s) for the static library you want to create right next to main.cpp.
-        </p>
-        <p>
-          <img src="images/clion-and-cmake/files-in-folder-1.png" alt="Files in folder" />
-        </p>
-        <p>
-          Go back into CLion and you should see the files you just added on the left side in the Project window.
-        </p>
-        <p>
-          It's time to edit CMakeLists.txt to tell the compiler to create a static library out of our files. Even if you have never
-          seen a CMakeLists.txt file before, you'll notice that it isn't nearly as cryptic as a Makefile. The instructions
-          are real words that are very easy to understand. This is what the default instructions mean:
-        </p>
-        <p>
-          <img src="images/clion-and-cmake/cmakelists-default-1.png" alt="CMakeLists default" />
-        </p>
-        <p>
-          <ul>
-            <li>
-              <strong>cmake_minimum_required</strong>: The minimum required version of CMake that must be installed before compiling</li>
-            <li>
-              <strong>project</strong>: The name of the project. You can set this to anything you'd like</li>
-            <li>
-              <strong>set(CMAKE_CXX_FLAGS)</strong>: Setting the options that will be sent to your compiler. You can put the version
-              of C++, warning ignores, and more here</li>
-            <li>
-              <strong>set(SOURCE_FILES)</strong>: All of the source files in your project. You do not need to put the header files.
-              You can if you want to, but you are only required to put implementation files here</li>
-            <li>
-              <strong>add_executable</strong>: The command to create an executable. This command will actually be changed for creating
-              a library instead of an executable</li>
-          </ul>
-        </p>
-        <p>
-          Let's modify some of these instructions so that a static library will be created.
-        </p>
-        <p>
-          In the
-          <strong>set(SOURCE_FILES)</strong> instruction, add your new library's implementation file(s) after main.cpp. Then, change
-          <strong>add_executable</strong> to
-          <strong>add_library</strong>.
-        </p>
-        <p>
-          When you're done, it should look something like this:
-        </p>
-        <p>
-          <img src="images/clion-and-cmake/cmakelists-create-library-1.png" alt="CMakeLists Create Library" />
-        </p>
-        <p>
-          Make sure you reload the CMake project (you can do this by either clicking Enable Auto-Reload at the top-right of CLion when
-          it gives you the option OR by right-clicking the CMakeLists.txt in the Project window on the left and selecting
-          Reload CMake Project).
-          <br/> Then, compile the project. You should see something like this in the output window if it worked:
-        </p>
-        <p>
-          <img src="images/clion-and-cmake/build-static-library-compile-1.png" alt="Build static library compile" />
-        </p>
-        <p>
-          And that's it! You can now navigate to the debug folder (mine's in a very obscure place: C:\Users\Limeoats\.CLion2016.1\system\cmake\generated\tinyxml2-6d774863\6d774863\Debug)
-          and grab the
-          <strong>.a</strong> file that was generated.
-        </p>
-        <h4>Mini Tutorial 2: Linking to our new static library</h4>
-        <p>
-          Start off by creating a new folder somewhere where you will place your library files. Inside, create two new folders,
-          <strong>lib</strong> and
-          <strong>include</strong>.
-        </p>
-        <p>
-          <img src="images/clion-and-cmake/lib-and-include-1.png" alt="Lib and include" />
-        </p>
-        <p>
-          Inside the lib folder, put the new
-          <strong>.a</strong> file created in the previous mini tutorial.
-          <br /> Inside the include folder, put the header file(s) from the library.
-        </p>
-        <p>
-          Next, open up or create the project you want to include this library in. The first thing we need to do is create a cmake
-          file that will look for our new library. You can technically hard-code the path to it in your CMakeLists.txt file,
-          but creating a separate file to look for it is a better approach.
-        </p>
-        <p>
-          At the root of the project, create a new folder called
-          <strong>cmake</strong>. Inside that folder, create a new file called
-          <strong>Find[YourLibrary].cmake</strong>. My file will be called
-          <strong>FindTinyXML2.cmake</strong>.
-        </p>
-        <p>
-          <img src="images/clion-and-cmake/create-cmake-file.png" alt="Create CMake file" />
-        </p>
-        <p>
-          In the code below, you will want to replace
-          <strong>tinyxml2</strong> with whatever the name of your library is.
-        </p>
-        <p>
-          <script src="https://gist.github.com/Limeoats/bdda274a6add4433f90cb104db6281d2.js"></script>
-        </p>
-        <p>
-          Now all that's left is to use this CMake file from our CMakeLists.txt and the library will be linked to and ready to go!
-        </p>
-        <p>
-          Open up CMakeLists.txt. After the line where you set your CMAKE_CXX_FLAGS, add the following line:
-        </p>
-        <p>
-          	<script src="https://gist.github.com/Limeoats/3764947d838d8304c0a78104c284d494.js"></script>
-        </p>
-        <p>
-          As the comment says, ${CMAKE_CURRENT_LIST_DIR} is the directory that your CMakeLists.txt file is in. This line tells CMake
-          where the FindTinyXML2.cmake file is located.
-        </p>
-        <p>
-          Next, add the following lines after the add_executable line:
-        </p>
-        <p>
-			<script src="https://gist.github.com/Limeoats/9a30761d6215f552ec2c3a292dde5ca0.js"></script>
-        </p>
-        <p>
-          As always, replace the variables above with the ones you created in your FindLibrary.cmake file from before.
-        </p>
-        <p>
-          Once all of this is done, reload your CMake project and try to build. You should not get any linker errors. You can now include
-          the library's header file in main.cpp and use it like any other static library!
-        </p>
-        <p>
-          Happy developing :-)
-        </p>
-        <p>
-          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.limeoats.com/clion-and-cmake.html"
-            data-via="Limeoats">Tweet</a>
-          <script>
-            !function (d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-              if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = p + '://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
-              }
-            }(document, 'script', 'twitter-wjs');</script>
-        </p>
-        <p>
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES * * */
-            var disqus_shortname = 'limeoats';
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-              var dsq = document.createElement('script');
-              dsq.type = 'text/javascript';
-              dsq.async = true;
-              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-          </script>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="copyright">
-      &copy; 2012
-      <span id="currentYear"></span>
-      <a href="http://www.limeoats.com">Limeoats</a>
-    </div>
-    <div class="footer-icons">
-      <a href="https://www.twitter.com/limeoats" target="_blank">
-        <img src="images/twitter.png" title="Twitter" />
+      <!-- Brand -->
+      <a class="navbar-brand" href="http://www.limeoats.com">
+        <img src="images/logo.png" />
       </a>
-      <a href="https://www.instagram.com/limeoats" target="_blank">
-        <img src="images/instagram.png" title="Instagram" />
-        <a href="https://www.youtube.com/limeoats" target="_blank">
-          <img src="images/youtube.png" title="Youtube" />
-        </a>
-        <a href="https://www.github.com/limeoats" target="_blank">
-          <img src="images/github.png" title="Github" />
-        </a>
-    </div>
-  </div>
-</body>
+      <a class="header-name link-no-underline" href="http://www.limeoats.com">Limeoats</span>
 
-</html>
+        <!-- Links -->
+        <div class="collapse navbar-collapse justify-content-end" id="nav-content">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#writing">Writing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#publications">Publications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="main-container">
+        <div class="section-container">
+          <div class="section-title">
+            CLion, CMake, and Statically Linked Libraries
+          </div>
+          <div class="section-text-small">
+            <p>
+              If you're in the process of working on a project in C++, then you have probably recently made a bunch of decisions regarding
+              which operating system to use, which IDE to use, and which compiler to use.
+            </p>
+            <p>
+              The issue is that there are very few IDE / build process options that can be used [almost] universally among all major operating
+              systems.
+            </p>
+            <p>
+              The
+              <strong>best option</strong> I have found is to use
+              <a href="https://www.jetbrains.com/clion/" target="_blank">JetBrains CLion</a> in conjunction with
+              <a href="https://cmake.org/" target="_blank">CMake</a> to handle the build process. You will still need your own compiler, which may lead to some inconsistencies
+              down the road, but CLion and CMake are the closest you will be able to get to a cross platform C++ solution.
+            </p>
+            <h4>Why CLion and CMake?</h4>
+            <p>
+              I spent a
+              <strong>tremendous</strong> amount of time bouncing between different C++ IDEs because I could not find anything that satisfied
+              my needs. Being able to develop my C++ projects on both my Windows PC and my iMac is very important to me. Therefore,
+              operating system specific IDEs like Microsoft's Visual Studio and Apple's XCode were off the table immediately.
+              After years of being unsatisfied with the available options, JetBrains CLion was released and all of my problems
+              were immediately solved.
+            </p>
+            <p>
+              According to CLion's website, &quot;
+              <em>CLion project model is based on CMake - the cross-platform automatic build system. CMake itself doesn't build a
+              project but passes the build rules and targets listed in CMakeLists.txt file to a specific builder.</em>&quot;
+              <br/> CMake is built right into CLion, which makes it the obvious tool for the job. As the quote above mentions, though,
+              CMake does not actually compile the C++ code. You still need your own compiler to do that.
+            </p>
+            <p>
+              Since CLion and CMake both have cross-platform implementations, you can simply set up a C++ project in CLion, upload it to
+              Github or another remote repository, and then pull it down on a different operating system and continue developing.
+              This feature alone makes it more convenient and easy to use than Visual Studio, XCode, or even a text editor with
+              GNU Make.
+            </p>
+            <h4>CMakeLists.txt</h4>
+            <p>
+              If you are familiar with Makefiles, then you know that dealing with targets and includes can be very messy and frustrating.
+              CMake takes care of that through the use of a special file called
+              <strong>CMakeLists.txt</strong>. This file can contain everything from compiler options, libraries to link to, include
+              directories, source files, and much more.
+            </p>
+            <h4>Mini Tutorial 1: Creating a static library</h4>
+            <p>
+              I am going to walk you through the steps for creating a static library with CLion and CMake. In the next mini tutorial, we
+              will be linking to this static library from a different project.
+            </p>
+            <p>
+              Note: You must have a compiler installed before starting this tutorial. On Windows, I use MinGW. On Mac, I use Clang.
+            </p>
+            <p>
+              Start by creating a new CLion project. Before you do anything else, navigate to the project's folder you just created and
+              drop the header(s) and implementation file(s) for the static library you want to create right next to main.cpp.
+            </p>
+            <p>
+              <img src="images/clion-and-cmake/files-in-folder-1.png" alt="Files in folder" />
+            </p>
+            <p>
+              Go back into CLion and you should see the files you just added on the left side in the Project window.
+            </p>
+            <p>
+              It's time to edit CMakeLists.txt to tell the compiler to create a static library out of our files. Even if you have never
+              seen a CMakeLists.txt file before, you'll notice that it isn't nearly as cryptic as a Makefile. The instructions
+              are real words that are very easy to understand. This is what the default instructions mean:
+            </p>
+            <p>
+              <img src="images/clion-and-cmake/cmakelists-default-1.png" alt="CMakeLists default" />
+            </p>
+            <p>
+              <ul>
+                <li>
+                  <strong>cmake_minimum_required</strong>: The minimum required version of CMake that must be installed before compiling</li>
+                  <li>
+                    <strong>project</strong>: The name of the project. You can set this to anything you'd like</li>
+                    <li>
+                      <strong>set(CMAKE_CXX_FLAGS)</strong>: Setting the options that will be sent to your compiler. You can put the version
+                    of C++, warning ignores, and more here</li>
+                    <li>
+                      <strong>set(SOURCE_FILES)</strong>: All of the source files in your project. You do not need to put the header files.
+                    You can if you want to, but you are only required to put implementation files here</li>
+                    <li>
+                      <strong>add_executable</strong>: The command to create an executable. This command will actually be changed for creating
+                    a library instead of an executable</li>
+                  </ul>
+                </p>
+                <p>
+                  Let's modify some of these instructions so that a static library will be created.
+                </p>
+                <p>
+                  In the
+                  <strong>set(SOURCE_FILES)</strong> instruction, add your new library's implementation file(s) after main.cpp. Then, change
+                  <strong>add_executable</strong> to
+                  <strong>add_library</strong>.
+                </p>
+                <p>
+                  When you're done, it should look something like this:
+                </p>
+                <p>
+                  <img src="images/clion-and-cmake/cmakelists-create-library-1.png" alt="CMakeLists Create Library" />
+                </p>
+                <p>
+                  Make sure you reload the CMake project (you can do this by either clicking Enable Auto-Reload at the top-right of CLion when
+                  it gives you the option OR by right-clicking the CMakeLists.txt in the Project window on the left and selecting
+                  Reload CMake Project).
+                  <br/> Then, compile the project. You should see something like this in the output window if it worked:
+                </p>
+                <p>
+                  <img src="images/clion-and-cmake/build-static-library-compile-1.png" alt="Build static library compile" />
+                </p>
+                <p>
+                  And that's it! You can now navigate to the debug folder (mine's in a very obscure place: C:\Users\Limeoats\.CLion2016.1\system\cmake\generated\tinyxml2-6d774863\6d774863\Debug)
+                  and grab the
+                  <strong>.a</strong> file that was generated.
+                </p>
+                <h4>Mini Tutorial 2: Linking to our new static library</h4>
+                <p>
+                  Start off by creating a new folder somewhere where you will place your library files. Inside, create two new folders,
+                  <strong>lib</strong> and
+                  <strong>include</strong>.
+                </p>
+                <p>
+                  <img src="images/clion-and-cmake/lib-and-include-1.png" alt="Lib and include" />
+                </p>
+                <p>
+                  Inside the lib folder, put the new
+                  <strong>.a</strong> file created in the previous mini tutorial.
+                  <br /> Inside the include folder, put the header file(s) from the library.
+                </p>
+                <p>
+                  Next, open up or create the project you want to include this library in. The first thing we need to do is create a cmake
+                  file that will look for our new library. You can technically hard-code the path to it in your CMakeLists.txt file,
+                  but creating a separate file to look for it is a better approach.
+                </p>
+                <p>
+                  At the root of the project, create a new folder called
+                  <strong>cmake</strong>. Inside that folder, create a new file called
+                  <strong>Find[YourLibrary].cmake</strong>. My file will be called
+                  <strong>FindTinyXML2.cmake</strong>.
+                </p>
+                <p>
+                  <img src="images/clion-and-cmake/create-cmake-file.png" alt="Create CMake file" />
+                </p>
+                <p>
+                  In the code below, you will want to replace
+                  <strong>tinyxml2</strong> with whatever the name of your library is.
+                </p>
+                <p>
+                  <script src="https://gist.github.com/Limeoats/bdda274a6add4433f90cb104db6281d2.js"></script>
+                </p>
+                <p>
+                  Now all that's left is to use this CMake file from our CMakeLists.txt and the library will be linked to and ready to go!
+                </p>
+                <p>
+                  Open up CMakeLists.txt. After the line where you set your CMAKE_CXX_FLAGS, add the following line:
+                </p>
+                <p>
+                 <script src="https://gist.github.com/Limeoats/3764947d838d8304c0a78104c284d494.js"></script>
+               </p>
+               <p>
+                As the comment says, ${CMAKE_CURRENT_LIST_DIR} is the directory that your CMakeLists.txt file is in. This line tells CMake
+                where the FindTinyXML2.cmake file is located.
+              </p>
+              <p>
+                Next, add the following lines after the add_executable line:
+              </p>
+              <p>
+               <script src="https://gist.github.com/Limeoats/9a30761d6215f552ec2c3a292dde5ca0.js"></script>
+             </p>
+             <p>
+              As always, replace the variables above with the ones you created in your FindLibrary.cmake file from before.
+            </p>
+            <p>
+              Once all of this is done, reload your CMake project and try to build. You should not get any linker errors. You can now include
+              the library's header file in main.cpp and use it like any other static library!
+            </p>
+            <p>
+              Happy developing :-)
+            </p>
+            <p>
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.limeoats.com/clion-and-cmake.html"
+              data-via="Limeoats">Tweet</a>
+              <script>
+                !function (d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                  if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                  }
+                }(document, 'script', 'twitter-wjs');</script>
+              </p>
+              <p>
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                  /* * * CONFIGURATION VARIABLES * * */
+                  var disqus_shortname = 'limeoats';
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function () {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+                </script>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="copyright">
+            &copy; 2012
+            <span id="currentYear"></span>
+            <a href="http://www.limeoats.com">Limeoats</a>
+          </div>
+          <div class="footer-icons">
+            <a href="https://www.twitter.com/limeoats" target="_blank">
+              <img src="images/twitter.png" title="Twitter" />
+            </a>
+            <a href="https://www.instagram.com/limeoats" target="_blank">
+              <img src="images/instagram.png" title="Instagram" />
+              <a href="https://www.youtube.com/limeoats" target="_blank">
+                <img src="images/youtube.png" title="Youtube" />
+              </a>
+              <a href="https://www.github.com/limeoats" target="_blank">
+                <img src="images/github.png" title="Github" />
+              </a>
+            </div>
+          </div>
+        </body>
+
+        </html>
